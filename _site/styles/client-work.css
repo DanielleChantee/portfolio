@@ -66,8 +66,9 @@
 
 .client-heading,
 .client-subheading {
-  font-family: "Quattrocento", serif;
+  font-family: "DM Sans", sans-serif;
   text-align: center;
+  text-transform: uppercase;
 }
 
 .client-heading {
