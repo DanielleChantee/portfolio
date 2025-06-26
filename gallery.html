@@ -1,0 +1,973 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gallery</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Poppins:wght@500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      body {
+        font-family: "DM Sans", sans-serif;
+        background-color: #f9f9f9;
+        margin: 0;
+        padding: 0;
+      }
+      .quick-view-gallery {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      .quick-view-gallery-card {
+        position: relative;
+        z-index: 0;
+        height: 400px;
+        color: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .quick-view-gallery-card-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+        padding: 1.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .quick-view-gallery-card-overlay h4,
+      .quick-view-gallery-card-overlay h2 {
+        font-family: "Poppins", sans-serif;
+        margin: 0 0 0.5rem 0;
+      }
+      .quick-view-gallery-card-overlay h4 {
+        font-weight: 600;
+        color: #ddd;
+        font-size: 0.9rem;
+      }
+      .quick-view-gallery-card-overlay h2 {
+        font-weight: 700;
+        color: #fff;
+        font-size: 1.3rem;
+      }
+      .quick-view-gallery-card-overlay p {
+        color: #eee;
+        font-size: 0.95rem;
+        margin-top: 0;
+        line-height: 1.4;
+      }
+      .quick-view-gallery-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.75);
+        padding: 0.75rem 1rem;
+        backdrop-filter: blur(8px);
+      }
+      .quick-view-gallery-card-footer .quick-view-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .quick-view-gallery-card-footer .quick-view-meta img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+      }
+      .quick-view-gallery-card-footer .quick-view-meta .text {
+        display: flex;
+        flex-direction: column;
+      }
+      .quick-view-gallery-card-footer .quick-view-meta .text span {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        color: #fff;
+      }
+      .quick-view-gallery-card-footer .quick-view-view-btn {
+        background: #fff;
+        color: #000;
+        border-radius: 999px;
+        padding: 0.35rem 1.25rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+      }
+      /* Quick View Popup Modal on Hover Styles */
+      .quick-view-hover-trigger {
+        position: relative;
+      }
+      .quick-view-popup {
+        position: fixed;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 999;
+      }
+      .quick-view-popup-content {
+        background: #fff;
+        color: #000;
+        max-width: 600px;
+        padding: 2rem;
+        border-radius: 12px;
+        text-align: center;
+      }
+      .popup-gallery-link-btn {
+        display: inline-block;
+        margin-top: 1.5rem;
+        padding: 0.75rem 1.5rem;
+        background-color: #000;
+        color: #fff;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        transition: background-color 0.3s ease;
+      }
+
+      .popup-gallery-link-btn:hover {
+        background-color: #333;
+      }
+      .quick-view-hover-trigger:hover .quick-view-popup {
+        display: flex;
+      }
+
+      /* Popup Gallery Close Button Styles */
+      .popup-gallery-close-btn {
+        position: absolute;
+        top: 1.5rem;
+        right: 1.5rem;
+        background: transparent;
+        color: #fff;
+        font-size: 2rem;
+        border: none;
+        cursor: pointer;
+        z-index: 1001;
+      }
+
+      .hover-gallery {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 1.5rem;
+        padding: 2rem;
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+
+      /* Hover Gallery Card Styles */
+      .hover-gallery-card {
+        position: relative;
+        z-index: 0;
+        height: 400px;
+        color: #fff;
+        border-radius: 16px;
+        overflow: hidden;
+        background-size: cover;
+        background-position: center;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+      }
+      .hover-gallery-card-overlay {
+        background: linear-gradient(to top, rgba(0, 0, 0, 0.65), transparent);
+        padding: 1.5rem;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+      }
+      .hover-gallery-card-overlay h4,
+      .hover-gallery-card-overlay h2 {
+        font-family: "Poppins", sans-serif;
+        margin: 0 0 0.5rem 0;
+      }
+      .hover-gallery-card-overlay h4 {
+        font-weight: 600;
+        color: #ddd;
+        font-size: 0.9rem;
+      }
+      .hover-gallery-card-overlay h2 {
+        font-weight: 700;
+        color: #fff;
+        font-size: 1.3rem;
+      }
+      .hover-gallery-card-footer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-color: rgba(0, 0, 0, 0.75);
+        padding: 0.75rem 1rem;
+        backdrop-filter: blur(8px);
+      }
+      .hover-meta {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .hover-meta img {
+        width: 28px;
+        height: 28px;
+        border-radius: 50%;
+      }
+      .hover-meta .text {
+        display: flex;
+        flex-direction: column;
+      }
+      .hover-meta .text span {
+        font-size: 0.8rem;
+        line-height: 1.2;
+        color: #fff;
+      }
+      .hover-view-btn {
+        background: #fff;
+        color: #000;
+        border-radius: 999px;
+        padding: 0.35rem 1.25rem;
+        font-weight: 600;
+        font-size: 0.85rem;
+        text-decoration: none;
+      }
+      .hover-gallery-card-hover {
+        position: absolute;
+        inset: 0;
+        background-color: rgba(0, 0, 0, 0.9);
+        color: #fff;
+        padding: 1.5rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 2;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+      }
+      .hover-gallery-card:hover .hover-gallery-card-hover {
+        opacity: 1;
+      }
+
+      @media (max-width: 1024px) {
+        .hover-gallery {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 600px) {
+        .hover-gallery {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="quick-view-gallery">
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Theme</h4>
+            <h2>Vantrue Store</h2>
+            <p>
+              Custom Shopify theme development tailored for Vantrue's product
+              line.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Vantrue Store</h2>
+            <p>
+              Detailed case study and features implemented for Vantrue's Shopify
+              build. Led the design and implementation of a fully responsive
+              Shopify theme, ensuring seamless user experience and brand
+              consistency for Vantrue Store.
+            </p>
+            <a
+              href="https://vantrue.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Redesign</h4>
+            <h2>Amerlife Redesign</h2>
+            <p>
+              Complete redesign and UX overhaul for Amerlife's Shopify
+              storefront.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Amerlife Redesign</h2>
+            <p>
+              Comprehensive UX research and redesign, improving navigation and
+              increasing conversion rates for Amerlife’s online store.
+            </p>
+            <a
+              href="https://amerlife.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify App Integration</h4>
+            <h2>EcoGear Integration</h2>
+            <p>
+              Integrated third-party apps to enhance EcoGear's Shopify
+              functionality.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>EcoGear Integration</h2>
+            <p>
+              Implemented multiple third-party app integrations to streamline
+              EcoGear’s operations and enhance customer engagement.
+            </p>
+            <a
+              href="https://ecogear.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Store Setup</h4>
+            <h2>Urban Threads</h2>
+            <p>
+              Full Shopify store setup including product upload and payment
+              configuration.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Urban Threads</h2>
+            <p>
+              Managed complete store setup from product uploads to payment
+              gateway integration, ensuring a smooth launch for Urban Threads.
+            </p>
+            <a
+              href="https://urbanthreads.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify SEO Optimization</h4>
+            <h2>Pure Beauty</h2>
+            <p>
+              Implemented SEO best practices to boost Pure Beauty's organic
+              traffic.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Pure Beauty</h2>
+            <p>
+              Optimized site structure and content to improve search rankings
+              and drive organic traffic growth for Pure Beauty.
+            </p>
+            <a
+              href="https://purebeauty.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Custom Features</h4>
+            <h2>TechNova Gadgets</h2>
+            <p>
+              Developed custom features and scripts for TechNova's unique
+              product needs.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>TechNova Gadgets</h2>
+            <p>
+              Created tailored features and scripts to meet TechNova’s specific
+              requirements, enhancing the functionality of their Shopify store.
+            </p>
+            <a
+              href="https://technova.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Migration</h4>
+            <h2>Frost & Co.</h2>
+            <p>
+              Seamless migration from legacy platform to Shopify for Frost & Co.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Frost & Co.</h2>
+            <p>
+              Handled data migration and platform transition ensuring zero
+              downtime and data integrity for Frost & Co.’s Shopify launch.
+            </p>
+            <a
+              href="https://frostandco.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Performance Tuning</h4>
+            <h2>Green Leaf Organics</h2>
+            <p>
+              Optimized page load speed and performance for Green Leaf Organics
+              store.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Green Leaf Organics</h2>
+            <p>
+              Implemented caching strategies and optimized assets to
+              significantly improve load times and user experience for Green
+              Leaf Organics.
+            </p>
+            <a
+              href="https://greenleaf.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Custom Checkout</h4>
+            <h2>Vivid Apparel</h2>
+            <p>
+              Implemented custom checkout flow to improve conversion rates for
+              Vivid Apparel.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Vivid Apparel</h2>
+            <p>
+              Designed and developed a streamlined custom checkout process to
+              reduce cart abandonment and boost sales for Vivid Apparel.
+            </p>
+            <a
+              href="https://vividapparel.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Theme Development</h4>
+            <h2>Nomad Essentials</h2>
+            <p>
+              Created a responsive and modern Shopify theme for Nomad
+              Essentials.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Nomad Essentials</h2>
+            <p>
+              Built a custom, mobile-friendly theme that enhanced user
+              experience and reflected Nomad Essentials’ brand identity.
+            </p>
+            <a
+              href="https://nomadessentials.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Product Photography</h4>
+            <h2>Bright Home Goods</h2>
+            <p>
+              Styled and photographed products to enhance Bright Home Goods’
+              online presence.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Bright Home Goods</h2>
+            <p>
+              Coordinated and executed product shoots, delivering high-quality
+              images that improved Bright Home Goods’ visual appeal online.
+            </p>
+            <a
+              href="https://brighthomegoods.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+      <div class="quick-view-hover-trigger">
+        <article
+          class="quick-view-gallery-card"
+          style="background-image: url('https://placehold.co/600x400')"
+        >
+          <div class="quick-view-gallery-card-overlay">
+            <h4>Shopify Marketing Setup</h4>
+            <h2>Solaris Tech</h2>
+            <p>
+              Configured marketing automation and campaigns for Solaris Tech
+              Shopify store.
+            </p>
+          </div>
+          <div class="quick-view-gallery-card-footer">
+            <div class="quick-view-meta">
+              <img src="https://placehold.co/28x28" alt="icon" />
+              <div class="text">
+                <span>ThemeKit</span>
+                <span>$Free</span>
+              </div>
+            </div>
+            <span class="quick-view-view-btn">Shopify</span>
+          </div>
+        </article>
+        <div class="quick-view-popup popup-gallery-popup">
+          <button class="popup-gallery-close-btn" aria-label="Close popup">
+            ×
+          </button>
+          <div class="quick-view-popup-content">
+            <h2>Solaris Tech</h2>
+            <p>
+              Set up marketing tools and automated campaigns to increase
+              customer engagement and sales for Solaris Tech.
+            </p>
+            <a
+              href="https://solaristech.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="popup-gallery-link-btn"
+              >Visit Site</a
+            >
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- POPUP MODALS REMOVED: replaced by hover popups inside cards -->
+
+    <!-- --------HOVER GALLERY SECTION-------- -->
+    <section class="hover-gallery">
+      <article
+        class="hover-gallery-card"
+        style="background-image: url('https://placehold.co/600x400')"
+      >
+        <div class="hover-gallery-card-overlay">
+          <h4>Shopify Theme</h4>
+          <h2>Vantrue Store</h2>
+          <p>
+            Custom Shopify theme development tailored for Vantrue's product
+            line.
+          </p>
+        </div>
+        <div class="hover-gallery-card-hover">
+          <p>
+            Led the design and implementation of a fully responsive Shopify
+            theme, ensuring seamless user experience and brand consistency for
+            Vantrue Store.
+          </p>
+        </div>
+        <div class="hover-gallery-card-footer">
+          <div class="hover-meta">
+            <img src="https://placehold.co/28x28" alt="icon" />
+            <div class="text">
+              <span>ThemeKit</span>
+              <span>$Free</span>
+            </div>
+          </div>
+          <a href="#" class="hover-view-btn">View</a>
+        </div>
+      </article>
+      <article
+        class="hover-gallery-card"
+        style="background-image: url('https://placehold.co/600x400')"
+      >
+        <div class="hover-gallery-card-overlay">
+          <h4>Shopify Redesign</h4>
+          <h2>Amerlife Redesign</h2>
+          <p>
+            Complete redesign and UX overhaul for Amerlife's Shopify storefront.
+          </p>
+        </div>
+        <div class="hover-gallery-card-hover">
+          <p>
+            Conducted comprehensive UX research and redesign, improving
+            navigation and increasing conversion rates for Amerlife’s online
+            store.
+          </p>
+        </div>
+        <div class="hover-gallery-card-footer">
+          <div class="hover-meta">
+            <img src="https://placehold.co/28x28" alt="icon" />
+            <div class="text">
+              <span>ThemeKit</span>
+              <span>$Free</span>
+            </div>
+          </div>
+          <a href="#" class="hover-view-btn">View</a>
+        </div>
+      </article>
+      <article
+        class="hover-gallery-card"
+        style="background-image: url('https://placehold.co/600x400')"
+      >
+        <div class="hover-gallery-card-overlay">
+          <h4>Shopify App Integration</h4>
+          <h2>EcoGear Integration</h2>
+          <p>
+            Integrated third-party apps to enhance EcoGear's Shopify
+            functionality.
+          </p>
+        </div>
+        <div class="hover-gallery-card-hover">
+          <p>
+            Implemented multiple third-party app integrations to streamline
+            EcoGear’s operations and enhance customer engagement.
+          </p>
+        </div>
+        <div class="hover-gallery-card-footer">
+          <div class="hover-meta">
+            <img src="https://placehold.co/28x28" alt="icon" />
+            <div class="text">
+              <span>ThemeKit</span>
+              <span>$Free</span>
+            </div>
+          </div>
+          <a href="#" class="hover-view-btn">View</a>
+        </div>
+      </article>
+      <article
+        class="hover-gallery-card"
+        style="background-image: url('https://placehold.co/600x400')"
+      >
+        <div class="hover-gallery-card-overlay">
+          <h4>Shopify Store Setup</h4>
+          <h2>Urban Threads</h2>
+          <p>
+            Full Shopify store setup including product upload and payment
+            configuration.
+          </p>
+        </div>
+        <div class="hover-gallery-card-hover">
+          <p>
+            Managed complete store setup from product uploads to payment gateway
+            integration, ensuring a smooth launch for Urban Threads.
+          </p>
+        </div>
+        <div class="hover-gallery-card-footer">
+          <div class="hover-meta">
+            <img src="https://placehold.co/28x28" alt="icon" />
+            <div class="text">
+              <span>ThemeKit</span>
+              <span>$Free</span>
+            </div>
+          </div>
+          <a href="#" class="hover-view-btn">View</a>
+        </div>
+      </article>
+    </section>
+    <!-- Script removed: quick view popup JavaScript is no longer needed -->
+
+    <script>
+      // Close button for popup
+      document.querySelectorAll(".popup-gallery-close-btn").forEach((btn) => {
+        btn.addEventListener("click", (e) => {
+          const popup = btn.closest(".popup-gallery-popup");
+          if (popup) popup.style.display = "none";
+        });
+      });
+
+      // Click outside popup closes it
+      document.querySelectorAll(".popup-gallery-popup").forEach((popup) => {
+        popup.addEventListener("click", (e) => {
+          if (e.target === popup) {
+            popup.style.display = "none";
+          }
+        });
+      });
+
+      // Hover trigger for quick view popup with delay logic
+      document
+        .querySelectorAll(".quick-view-hover-trigger")
+        .forEach((trigger) => {
+          const popup = trigger.querySelector(".quick-view-popup");
+          let hoverTimeout;
+          let hoverDelay;
+
+          trigger.addEventListener("mouseenter", () => {
+            clearTimeout(hoverTimeout);
+            // Cancel any previous delay
+            if (hoverDelay) clearTimeout(hoverDelay);
+            hoverDelay = setTimeout(() => {
+              popup.style.display = "flex";
+            }, 1000); // half second delay
+          });
+
+          trigger.addEventListener("mouseleave", () => {
+            // Cancel pending show
+            if (hoverDelay) clearTimeout(hoverDelay);
+            hoverTimeout = setTimeout(() => {
+              popup.style.display = "none";
+            }, 60);
+          });
+        });
+    </script>
+  </body>
+</html>
