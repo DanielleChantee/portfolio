@@ -293,14 +293,143 @@ permalink: /work.html
   </head>
   <body>
     <!-- IMAGE BANNER -->
-    <div class="client-work-image-banner image-banner">
-      <div class="image-banner-content">
-        <h1 class="animate__animated animate__bounce">Client Work</h1>
-        <!-- <h2>Hover over the cards to learn more</h2> -->
-        <p>Hover over the cards to learn more</p>
-        <div class="button-row"></div>
+    <section
+      class="project-intro-banner"
+      style="
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        gap: 40px;
+        background: #f4f4f4;
+        padding: 60px 20px;
+        border-radius: 20px;
+        flex-wrap: wrap;
+        text-align: center;
+        margin: 40px auto;
+        max-width: 1200px;
+      "
+    >
+      <div style="flex: 1 1 300px; max-width: 400px">
+        <div
+          class="hover-gallery-card"
+          style="
+            height: 400px;
+            background-image: url('./images/vantrue-image.jpg');
+          "
+        >
+          <div class="hover-gallery-card-overlay">
+            <h4>Bespoke Shopify Theme</h4>
+            <h2>Vantrue</h2>
+            <p>
+              Bespoke Shopify theme for a premium electronics brand, developed
+              primarily from custom-coded sections built froom scratch to meet
+              high design and performance standards.
+            </p>
+          </div>
+          <div class="hover-gallery-card-hover">
+            <div>
+              <p>
+                Led the development of a highly bespoke Shopify theme for
+                Vantrue, extending beyond basic theme architecture with numerous
+                custom sections developed entirely from scratch. The build
+                emphasised performance, pixel-perfect design implementation, and
+                modular flexibility. Key features included advanced layout
+                structures and a polished, mobile-first UI.
+              </p>
+              <a class="hover-view-btn">Coming soon</a>
+            </div>
+          </div>
+          <div class="hover-gallery-card-footer">
+            <div class="hover-meta">
+              <img
+                class="thumbnail-icon"
+                src="./images/vantrue-image-square.jpg"
+                alt="icon"
+              />
+              <div class="text">
+                <span>Bespoke / Custom Theme Development</span>
+              </div>
+            </div>
+            <span class="hover-view-btn">Shopify</span>
+          </div>
+        </div>
       </div>
-    </div>
+      <div style="flex: 1 1 300px; max-width: 500px">
+        <h2 style="font-size: 2rem; font-weight: bold; margin-bottom: 20px">
+          BEYOND BASIC THEMES
+        </h2>
+        <p style="margin-bottom: 30px; font-size: 1rem; color: #333">
+          I specialise in Shopify development that goes far beyond simple theme
+          customisations. My my recent work included developemnt that replaced
+          theme defaults crafting storefronts where nearly every section is
+          bespoke, designed and developed from scratch for performance,
+          flexibility, and brand uniqueness.
+        </p>
+        <!-- <a
+          href="#work"
+          style="
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: #000;
+            color: #fff;
+            padding: 12px 24px;
+            border-radius: 40px;
+            font-weight: 600;
+          "
+        >
+          <span style="font-size: 1.2em">➜</span> LEARN MORE
+        </a> -->
+      </div>
+      <!-- <div style="flex: 1 1 300px; max-width: 400px">
+        <div class="quick-view-hover-trigger">
+          <article
+            class="quick-view-gallery-card"
+            style="
+              height: 400px;
+              background-image: url('./images/quickview-banner-placeholder.jpg');
+            "
+          >
+            <div class="quick-view-gallery-card-overlay">
+              <h4>Full Theme Rebuilds</h4>
+              <h2>Theme Replacements</h2>
+              <p>
+                Storefronts engineered from the ground up—custom sections,
+                layouts, and logic tailored to client needs.
+              </p>
+            </div>
+            <div class="quick-view-gallery-card-footer">
+              <div class="quick-view-meta">
+                <img
+                  class="thumbnail-icon"
+                  src="./images/quickview-banner-placeholder.jpg"
+                  alt="icon"
+                />
+                <div class="text">
+                  <span>Bespoke / Custom Theme Development</span>
+                </div>
+              </div>
+              <span class="quick-view-view-btn">Shopify</span>
+            </div>
+          </article>
+          <div class="quick-view-popup popup-gallery-popup">
+            <button class="popup-gallery-close-btn" aria-label="Close popup">
+              ×
+            </button>
+            <div class="quick-view-popup-content">
+              <h2>Theme Replacements</h2>
+              <p>
+                Developed fully custom Shopify themes with bespoke sections that
+                replace almost all native theme content. Includes complex layout
+                features, metafield logic, and dynamic schema support.
+              </p>
+              <a href="#work" class="popup-gallery-link-btn">View Work</a>
+            </div>
+          </div>
+        </div>
+      </div> -->
+    </section>
 
     <!-- QUICK VIEW GALLERY SECTION -->
     <section class="quick-view-gallery">
