@@ -3,6 +3,8 @@ layout: default
 title: Hire a Shopify Developer | Store Setup, Themes & Ecommerce Solutions
 description: Contact Danielle Adeyemo, a professional Shopify Developer. Reach out via email for expert consultations and Shopify development services, including theme customisation.
 permalink: /contact.html
+image: /images/profile-picture.jpeg
+type: website
 ---
 
 <!DOCTYPE html>
@@ -58,16 +60,46 @@ permalink: /contact.html
       </div>
     </div>
     <!-- CONTACT FORM -->
-    <form action="https://formspree.io/f/mgveyylg" method="POST">
-      <label>
-        Email:
-        <input type="email" name="email" />
-      </label>
-      <label>
-        Message:
-        <textarea name="message"></textarea>
-      </label>
-      <button class="btn glow-black" type="submit">Send</button>
+    <form action="https://formspree.io/f/mgveyylg" method="POST" aria-label="Contact form" id="contact-form" novalidate>
+      <div id="form-messages" role="alert" aria-live="polite" aria-atomic="true"></div>
+      
+      <div class="form-group">
+        <label for="email">
+          Email:
+          <input 
+            type="email" 
+            name="email" 
+            id="email" 
+            required 
+            aria-required="true"
+            aria-invalid="false"
+            aria-describedby="email-error"
+            autocomplete="email"
+          />
+        </label>
+        <span id="email-error" class="error-message" role="alert" aria-live="polite"></span>
+      </div>
+      
+      <div class="form-group">
+        <label for="message">
+          Message:
+          <textarea 
+            name="message" 
+            id="message" 
+            required 
+            aria-required="true"
+            aria-invalid="false"
+            aria-describedby="message-error"
+            rows="5"
+          ></textarea>
+        </label>
+        <span id="message-error" class="error-message" role="alert" aria-live="polite"></span>
+      </div>
+      
+      <button class="btn glow-black" type="submit" aria-label="Send contact form" id="submit-btn">
+        <span class="button-text">Send</span>
+        <span class="button-loader" aria-hidden="true" style="display: none;">Sending...</span>
+      </button>
     </form>
   </body>
 </html>

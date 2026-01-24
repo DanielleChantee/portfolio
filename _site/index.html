@@ -3,17 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    
     <!-- Dynamic Meta Description -->
     <meta
       name="description"
       content="Danielle Adeyemo, Product Engineer building scalable systems through frontend development and Shopify web development. Product-focused engineering at the intersection of architecture, performance, and extensibility, specialising in commerce platforms including Shopify."
     />
 
+    <!-- Canonical URL -->
+    
+    
+    
+    <link rel="canonical" href="https://daniellechantee.github.io/portfolio/" />
+
+    <!-- Open Graph / Facebook -->
+    
+    
+    
+    
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://daniellechantee.github.io/portfolio/" />
+    <meta property="og:title" content="Product Engineer | Scalable Systems, Frontend Development &amp; Shopify Web Development" />
+    <meta property="og:description" content="Danielle Adeyemo, Product Engineer building scalable systems through frontend development and Shopify web development. Product-focused engineering at the intersection of architecture, performance, and extensibility, specialising in commerce platforms including Shopify." />
+    <meta property="og:image" content="https://daniellechantee.github.io/portfolio/images/profile-picture.jpeg" />
+    <meta property="og:site_name" content="Danielle Adeyemo - Product Engineer" />
+    <meta property="og:locale" content="en_GB" />
+
+    <!-- Twitter / X Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://daniellechantee.github.io/portfolio/" />
+    <meta name="twitter:title" content="Product Engineer | Scalable Systems, Frontend Development &amp; Shopify Web Development" />
+    <meta name="twitter:description" content="Danielle Adeyemo, Product Engineer building scalable systems through frontend development and Shopify web development. Product-focused engineering at the intersection of architecture, performance, and extensibility, specialising in commerce platforms including Shopify." />
+    <meta name="twitter:image" content="https://daniellechantee.github.io/portfolio/images/profile-picture.jpeg" />
+    <meta name="twitter:creator" content="@danielleadeyemo" />
+
     <link
       rel="shortcut icon"
       href="./images/logos/logo-white-small.jpg"
       type="image/x-icon"
     />
+    <link rel="manifest" href="/portfolio/manifest.json">
+    <meta name="theme-color" content="#000000">
     <title>Product Engineer | Scalable Systems, Frontend Development & Shopify Web Development</title>
     <!-- Placeholder for external CSS links -->
     <!-- Google Fonts -->
@@ -55,10 +85,15 @@
     <link rel="stylesheet" href="/portfolio/styles/style.css">
     <link rel="stylesheet" href="/portfolio/styles/header.css">
     <link rel="stylesheet" href="/portfolio/styles/footer.css">
+    <!-- Dark Mode -->
+    <link rel="stylesheet" href="/portfolio/styles/dark-mode.css">
     <!-- SPLIDE -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
   </head>
   <body>
+    <!-- Skip Navigation Link -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    
     <!-- Header -->
     <!-- <header>
   <nav>
@@ -78,44 +113,44 @@
   </nav>
 </header> -->
 <header>
-  <nav>
-    <a href="index.html">
+  <nav role="navigation" aria-label="Main navigation">
+    <a href="index.html" aria-label="Home - Danielle Portfolio">
       <div class="logo">
         <img src="./images/logos/logo-black.jpg" alt="Danielle portfolio logo" />
       </div>
     </a>
     <!-- Desktop Menu -->
-    <ul class="desktop-menu">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About</a></li>
+    <ul class="desktop-menu" role="menubar">
+      <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+      <li role="none"><a href="about.html" role="menuitem">About</a></li>
       <!-- <li><a href="client-work.html">Client Work</a></li> -->
-      <li class="has-mega-menu">
-        <a href="work.html">Work</a>
-        <div class="mega-menu">
+      <li class="has-mega-menu" role="none">
+        <a href="work.html" role="menuitem" aria-haspopup="true" aria-expanded="false">Work</a>
+        <div class="mega-menu" role="menu" aria-label="Work submenu">
           <div class="mega-menu-content">
             <div class="mega-menu-column">
               <h3>Featured Projects</h3>
-              <ul>
-                <li>
-                  <a href="work.html#vantrue" class="mega-menu-item">
+              <ul role="list">
+                <li role="none">
+                  <a href="work.html#vantrue" class="mega-menu-item" role="menuitem">
                     <img src="./images/vantrue-image.jpg" alt="Vantrue project" class="mega-menu-thumbnail" />
                     <span>Vantrue</span>
                   </a>
                 </li>
-                <li>
-                  <a href="work.html#tuplus" class="mega-menu-item">
+                <li role="none">
+                  <a href="work.html#tuplus" class="mega-menu-item" role="menuitem">
                     <img src="./images/tuplus-image.jpg" alt="Tuplus project" class="mega-menu-thumbnail" />
                     <span>Tuplus</span>
                   </a>
                 </li>
-                <li>
-                  <a href="work.html#pets-purest" class="mega-menu-item">
+                <li role="none">
+                  <a href="work.html#pets-purest" class="mega-menu-item" role="menuitem">
                     <img src="./images/pets-purest-image-square.jpg" alt="Pets Purest project" class="mega-menu-thumbnail" />
                     <span>Pets Purest</span>
                   </a>
                 </li>
-                <li>
-                  <a href="work.html#esl" class="mega-menu-item">
+                <li role="none">
+                  <a href="work.html#esl" class="mega-menu-item" role="menuitem">
                     <img src="./images/esl-image-square.jpg" alt="ESL Shop project" class="mega-menu-thumbnail" />
                     <span>ESL Shop</span>
                   </a>
@@ -124,49 +159,66 @@
             </div>
             <div class="mega-menu-column">
               <h3>Project Types</h3>
-              <ul>
-                <li><a href="work.html">All Work</a></li>
-                <li><a href="work.html#theme-development">Theme Development</a></li>
-                <li><a href="work.html#ux-debugging">UX Debugging</a></li>
-                <li><a href="work.html#custom-sections">Custom Sections</a></li>
+              <ul role="list">
+                <li role="none"><a href="work.html" role="menuitem">All Work</a></li>
+                <li role="none"><a href="work.html#theme-development" role="menuitem">Theme Development</a></li>
+                <li role="none"><a href="work.html#ux-debugging" role="menuitem">UX Debugging</a></li>
+                <li role="none"><a href="work.html#custom-sections" role="menuitem">Custom Sections</a></li>
               </ul>
             </div>
             <div class="mega-menu-column">
               <h3>View All</h3>
-              <ul>
-                <li><a href="work.html" class="mega-menu-cta">Browse Portfolio</a></li>
+              <ul role="list">
+                <li role="none"><a href="work.html" class="mega-menu-cta" role="menuitem">Browse Portfolio</a></li>
               </ul>
             </div>
           </div>
         </div>
       </li>
-      <li><a href="contact.html">Contact</a></li>
+      <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
     </ul>
+    <!-- Dark Mode Toggle -->
+    <button class="dark-mode-toggle" aria-label="Toggle dark mode" id="dark-mode-toggle">
+      <svg aria-hidden="true" class="sun-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="5"></circle>
+        <line x1="12" y1="1" x2="12" y2="3"></line>
+        <line x1="12" y1="21" x2="12" y2="23"></line>
+        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+        <line x1="1" y1="12" x2="3" y2="12"></line>
+        <line x1="21" y1="12" x2="23" y2="12"></line>
+        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+      </svg>
+      <svg aria-hidden="true" class="moon-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="display: none;">
+        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+      </svg>
+    </button>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
+    <button class="hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
     </button>
     <!-- Mobile Menu Backdrop -->
-    <div class="mobile-menu-backdrop"></div>
+    <div class="mobile-menu-backdrop" aria-hidden="true"></div>
     <!-- Mobile Menu Wrapper -->
-    <div class="mobile-menu-wrapper">
+    <div class="mobile-menu-wrapper" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
       <div class="menu-header">
-        <button class="close">&times;</button>
+        <button class="close" aria-label="Close menu">&times;</button>
       </div>
-      <ul class="mobile-menu">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About</a></li>
-        <li><a href="work.html">Work</a></li>
-        <li><a href="contact.html">Contact</a></li>
+      <ul class="mobile-menu" role="menubar">
+        <li role="none"><a href="index.html" role="menuitem">Home</a></li>
+        <li role="none"><a href="about.html" role="menuitem">About</a></li>
+        <li role="none"><a href="work.html" role="menuitem">Work</a></li>
+        <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
       </ul>
     </div>
   </nav>
 </header>
 
 
-    <main><!DOCTYPE html>
+    <main id="main-content"><!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -317,8 +369,8 @@
         <h2>Building Scalable Product Systems</h2>
         <p>Product Engineer specialising in scalable architecture and performance-led frontend development. Currently building commerce systems through custom development within Shopify Platinum Partner environments.</p>
         <div class="button-row">
-          <a href="./work.html" class="btn glow-black">View Work</a>
-          <a href="./about.html" class="btn glow-black">Learn More</a>
+          <a href="./work.html" class="btn btn-primary glow-black">View Work</a>
+          <a href="./about.html" class="btn btn-secondary glow-black">Learn More</a>
           <!-- <a href="./design.html" class="btn">View Design Work</a> -->
         </div>
       </div>
@@ -458,7 +510,7 @@
         <h2>Commerce systems built for scale</h2>
         <p>View featured projects.</p>
         <div class="button-row">
-          <a href="./work.html" class="btn glow-black">View Work</a>
+          <a href="./work.html" class="btn btn-primary glow-black">View Work</a>
         </div>
       </div>
 

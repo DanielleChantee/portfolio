@@ -12,6 +12,26 @@ html, body {
   box-sizing: border-box;
 }
 
+/* Skip Navigation Link */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 0;
+  background: #000;
+  color: #fff;
+  padding: 8px 16px;
+  text-decoration: none;
+  z-index: 10000;
+  font-weight: 600;
+  border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+  top: 0;
+  outline: 3px solid #fff;
+  outline-offset: 2px;
+}
+
 main {
   width: 100%;
   max-width: 100%;
@@ -62,11 +82,45 @@ h4 {
   border: none;
   color: white;
   cursor: pointer;
-  display: inline-block;
-  padding: 10px 20px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 24px;
   margin: 5px;
   border-radius: 40px;
-  transition: background-color 0.4s;
+  transition: background-color 0.4s, outline 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+  font-weight: 500;
+  min-height: 44px;
+  min-width: 120px;
+}
+
+/* Primary CTA - More prominent */
+.btn-primary {
+  background-color: black;
+  font-weight: 600;
+  font-size: 16px;
+  padding: 14px 32px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.btn-primary:hover {
+  background-color: #000;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.4);
+}
+
+/* Secondary CTA - Less prominent */
+.btn-secondary {
+  background-color: rgba(0, 0, 0, 0.7);
+  font-weight: 400;
+  font-size: 14px;
+  padding: 12px 24px;
+}
+
+.btn-secondary:hover {
+  background-color: rgba(0, 0, 0, 0.85);
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
 .btn:hover {
@@ -76,12 +130,50 @@ h4 {
 }
 
 .btn:focus {
-  outline: 2px solid white;
-  outline-offset: 2px;
+  outline: 3px solid white;
+  outline-offset: 3px;
+  background-color: #252525;
+}
+
+.btn:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.btn:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 3px;
 }
 
 .btn:active {
   transform: scale(0.98);
+}
+
+/* Loading state for buttons */
+.btn.loading {
+  position: relative;
+  color: transparent;
+  pointer-events: none;
+}
+
+.btn.loading::after {
+  content: "";
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  top: 50%;
+  left: 50%;
+  margin-left: -8px;
+  margin-top: -8px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: white;
+  border-radius: 50%;
+  animation: spin 0.6s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 /* Button Glow Effect */
@@ -161,6 +253,21 @@ h4 {
   justify-content: center;
 }
 
+.content-section .button-row .btn.btn-primary {
+  background-color: black;
+  color: white;
+  padding: 14px 32px;
+  font-weight: 600;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.content-section .button-row .btn.btn-secondary {
+  background-color: rgba(255, 255, 255, 0.9);
+  color: black;
+  padding: 12px 24px;
+  font-weight: 400;
+}
+
 @media (max-width: 768px) {
   .content-section .button-row {
     flex-direction: column;
@@ -238,6 +345,25 @@ h4 {
   .image-banner h2 {
     font-size: 16px;
   }
+}
+
+/* Image Optimization */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+/* Prevent layout shift for lazy-loaded images */
+img[loading="lazy"] {
+  aspect-ratio: attr(width) / attr(height);
+}
+
+/* Responsive images */
+picture {
+  display: block;
+  max-width: 100%;
 }
 
 /* Footer */

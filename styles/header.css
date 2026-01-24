@@ -1,13 +1,14 @@
 /* Header */
 header {
-  background-color: black;
+  background-color: var(--bg-black);
   padding: 10px;
   position: sticky;
   top: 0;
   z-index: 100;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: var(--shadow-sm);
   width: 100%;
   max-width: 100%;
+  transition: background-color var(--transition-normal), box-shadow var(--transition-normal);
 }
 
 .logo {
@@ -45,9 +46,10 @@ nav {
 }
 
 .desktop-menu li a {
-  color: white;
+  color: var(--text-white);
   text-decoration: none;
   font-size: 16px;
+  transition: opacity 0.2s ease, outline 0.2s ease, color var(--transition-normal);
 }
 
 .desktop-menu li a:hover {
@@ -57,7 +59,17 @@ nav {
 }
 
 .desktop-menu li a:focus {
-  outline: 2px solid white;
+  outline: 3px solid var(--text-white);
+  outline-offset: 4px;
+  border-radius: 2px;
+}
+
+.desktop-menu li a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.desktop-menu li a:focus-visible {
+  outline: 3px solid var(--text-white);
   outline-offset: 4px;
   border-radius: 2px;
 }
@@ -77,14 +89,14 @@ nav {
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: black;
+  background-color: var(--bg-black);
   min-width: 700px;
   max-width: 950px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-md);
   opacity: 0;
   visibility: hidden;
   transform: translateY(-10px);
-  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease, background-color var(--transition-normal), box-shadow var(--transition-normal);
   z-index: 1000;
   padding: 30px 40px;
   border-top: 2px solid rgba(255, 255, 255, 0.2);
@@ -135,7 +147,7 @@ nav {
   font-weight: 400;
   display: block;
   padding: 6px 0;
-  transition: color 0.2s ease, padding-left 0.2s ease;
+  transition: color 0.2s ease, padding-left 0.2s ease, outline 0.2s ease;
   white-space: nowrap;
 }
 
@@ -144,6 +156,22 @@ nav {
   padding-left: 8px;
   text-decoration: none;
   opacity: 1;
+}
+
+.mega-menu-column ul li a:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.mega-menu-column ul li a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.mega-menu-column ul li a:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Mega Menu Items with Thumbnails */
@@ -214,6 +242,23 @@ nav {
   min-height: 44px;
   align-items: center;
   justify-content: center;
+  transition: outline 0.2s ease;
+}
+
+.hamburger:focus {
+  outline: 3px solid white;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.hamburger:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.hamburger:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .hamburger span {
@@ -288,6 +333,23 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: outline 0.2s ease;
+}
+
+.menu-header .close:focus {
+  outline: 3px solid white;
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.menu-header .close:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.menu-header .close:focus-visible {
+  outline: 3px solid white;
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 .mobile-menu {
@@ -321,7 +383,7 @@ nav {
   line-height: 1.5;
   display: flex;
   align-items: center;
-  transition: background-color 0.2s ease, padding-left 0.2s ease;
+  transition: background-color 0.2s ease, padding-left 0.2s ease, outline 0.2s ease;
 }
 
 .mobile-menu li a:hover {
@@ -331,6 +393,17 @@ nav {
 }
 
 .mobile-menu li a:focus {
+  outline: 2px solid white;
+  outline-offset: -2px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu li a:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.mobile-menu li a:focus-visible {
   outline: 2px solid white;
   outline-offset: -2px;
   border-radius: 4px;
