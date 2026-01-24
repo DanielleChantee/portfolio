@@ -5,6 +5,14 @@ body {
   padding: 0;
 }
 
+/* Anchor scroll offset for sticky header */
+#vantrue,
+#tuplus,
+#pets-purest,
+#esl {
+  scroll-margin-top: 80px;
+}
+
 /* Project Intro Banner */
 .project-intro-banner {
   display: flex;

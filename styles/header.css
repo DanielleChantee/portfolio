@@ -6,6 +6,8 @@ header {
   top: 0;
   z-index: 100;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 100%;
 }
 
 .logo {
@@ -21,6 +23,8 @@ header {
 nav {
   display: flex;
   align-items: center;
+  width: 100%;
+  max-width: 100%;
 }
 
 .desktop-menu {
@@ -37,6 +41,7 @@ nav {
   padding: 10px 15px;
   font-size: 16px;
   text-transform: uppercase;
+  position: relative;
 }
 
 .desktop-menu li a {
@@ -55,6 +60,141 @@ nav {
   outline: 2px solid white;
   outline-offset: 4px;
   border-radius: 2px;
+}
+
+/* Mega Menu */
+.desktop-menu li.has-mega-menu {
+  position: relative;
+}
+
+.desktop-menu li.has-mega-menu > a::after {
+  content: " ▼";
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.mega-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: black;
+  min-width: 600px;
+  max-width: 800px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  z-index: 1000;
+  padding: 30px 40px;
+  border-top: 2px solid rgba(255, 255, 255, 0.2);
+  box-sizing: border-box;
+}
+
+.desktop-menu li.has-mega-menu:hover .mega-menu,
+.desktop-menu li.has-mega-menu:focus-within .mega-menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+.mega-menu-content {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+}
+
+.mega-menu-column h3 {
+  color: white;
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  padding-bottom: 8px;
+}
+
+.mega-menu-column ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.mega-menu-column ul li {
+  padding: 0;
+  margin-bottom: 12px;
+  font-size: 14px;
+  text-transform: none;
+}
+
+.mega-menu-column ul li a {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 14px;
+  font-weight: 400;
+  display: block;
+  padding: 6px 0;
+  transition: color 0.2s ease, padding-left 0.2s ease;
+}
+
+.mega-menu-column ul li a:hover {
+  color: white;
+  padding-left: 8px;
+  text-decoration: none;
+  opacity: 1;
+}
+
+/* Mega Menu Items with Thumbnails */
+.mega-menu-column ul li a.mega-menu-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 0;
+  padding-left: 0;
+  transition: all 0.2s ease;
+}
+
+.mega-menu-column ul li a.mega-menu-item:hover {
+  padding-left: 0;
+  transform: translateX(4px);
+}
+
+.mega-menu-thumbnail {
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 4px;
+  flex-shrink: 0;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.mega-menu-column ul li a.mega-menu-item:hover .mega-menu-thumbnail {
+  transform: scale(1.05);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.2);
+}
+
+.mega-menu-column ul li a.mega-menu-item span {
+  flex: 1;
+  color: rgba(255, 255, 255, 0.9);
+  transition: color 0.2s ease;
+}
+
+.mega-menu-column ul li a.mega-menu-item:hover span {
+  color: white;
+}
+
+.mega-menu-column ul li a.mega-menu-cta {
+  font-weight: 600;
+  color: white;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.mega-menu-column ul li a.mega-menu-cta:hover {
+  padding-left: 0;
+  text-decoration: underline;
 }
 
 /* Hamburger Menu */
@@ -207,6 +347,42 @@ nav {
 
   .hamburger {
     display: flex;
+  }
+  
+  .mega-menu {
+    display: none;
+  }
+}
+
+@media (min-width: 990px) {
+  .desktop-menu {
+    display: flex;
+  }
+
+  .mobile-menu-wrapper {
+    display: none;
+  }
+  
+  .mega-menu {
+    display: block;
+    max-width: min(800px, calc(100vw - 40px));
+  }
+  
+  /* Align mega menu to right edge of menu item to prevent overflow */
+  .desktop-menu li.has-mega-menu:hover .mega-menu,
+  .desktop-menu li.has-mega-menu:focus-within .mega-menu {
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1200px) {
+  .mega-menu {
+    min-width: 500px;
+    max-width: min(700px, calc(100vw - 40px));
+  }
+  
+  .mega-menu-content {
+    gap: 30px;
   }
 }
 
