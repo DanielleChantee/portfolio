@@ -1,8 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
   // Splide Carousel for Main Carousel
-  var carouselElement = document.querySelector("#carousel");
+  const carouselElement = document.querySelector("#carousel");
   if (carouselElement) {
-    var carousel = new Splide(carouselElement, {
+    const carousel = new Splide(carouselElement, {
       perPage: 4,
       rewind: true,
       autoplay: true,
@@ -49,9 +49,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Services Marquee
-  var marqueeElement = document.querySelector("#services-marquee .marquee");
+  const marqueeElement = document.querySelector("#services-marquee .marquee");
   if (marqueeElement) {
-    var textContent = marqueeElement.innerHTML;
+    const textContent = marqueeElement.innerHTML;
 
     // Duplicate text content to fill the viewport twice
     while (marqueeElement.offsetWidth < window.innerWidth * 2) {

@@ -86,9 +86,9 @@ nav {
   position: fixed;
   top: 0;
   left: -100%;
-  height: 100%;
+  height: 100vh;
   width: 320px;
-  max-width: 80%;
+  max-width: 85%;
   background-color: black;
   color: white;
   box-shadow: 4px 0 7px rgba(0, 0, 0, 0.1);
@@ -97,6 +97,7 @@ nav {
   z-index: 1000;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .mobile-menu-wrapper.open {
@@ -109,7 +110,7 @@ nav {
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100vh;
   background-color: rgba(0, 0, 0, 0.5);
   z-index: 999;
   opacity: 0;
@@ -127,7 +128,9 @@ nav {
 .menu-header {
   display: flex;
   justify-content: flex-end;
-  padding: 10px;
+  padding: 16px 20px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  flex-shrink: 0;
 }
 
 .menu-header .close {
@@ -147,36 +150,53 @@ nav {
 
 .mobile-menu {
   list-style: none;
-  padding: 20px;
+  padding: 20px 0;
   margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 .mobile-menu li {
   text-align: left;
-  margin-bottom: 20px;
-  padding: 15px 20px;
-  min-height: 44px;
+  margin-bottom: 8px;
+  padding: 0;
+  min-height: 48px;
   display: flex;
   align-items: center;
 }
 
 .mobile-menu li a {
   color: white;
-  font-size: 16px;
+  font-size: 18px;
+  font-weight: 500;
   text-transform: uppercase;
   text-decoration: none;
   width: 100%;
+  padding: 12px 24px;
+  letter-spacing: 0.5px;
+  line-height: 1.5;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.2s ease, padding-left 0.2s ease;
 }
 
 .mobile-menu li a:hover {
-  text-decoration: underline;
-  opacity: 0.8;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding-left: 28px;
+  text-decoration: none;
 }
 
 .mobile-menu li a:focus {
   outline: 2px solid white;
-  outline-offset: 4px;
-  border-radius: 2px;
+  outline-offset: -2px;
+  border-radius: 4px;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.mobile-menu li:last-child {
+  margin-bottom: 0;
 }
 
 /* Responsive Design */
@@ -190,12 +210,18 @@ nav {
   }
 }
 
-@media (min-width: 990px) {
-  .desktop-menu {
-    display: flex;
-  }
-
+@media (max-width: 480px) {
   .mobile-menu-wrapper {
-    display: none;
+    width: 280px;
+    max-width: 90%;
+  }
+  
+  .mobile-menu li a {
+    font-size: 16px;
+    padding: 14px 20px;
+  }
+  
+  .menu-header {
+    padding: 14px 16px;
   }
 }

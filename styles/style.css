@@ -126,31 +126,57 @@ h4 {
   padding: 40px 20px;
 }
 
+.content-section .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
 .content-section .button-row .btn {
   background-color: white;
   color: black;
   margin-bottom: 40px;
   padding: 12px 24px;
   min-height: 44px;
+  min-width: 120px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
 }
 
+@media (max-width: 768px) {
+  .content-section .button-row {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .content-section .button-row .btn {
+    width: 100%;
+    max-width: 300px;
+    margin-bottom: 15px;
+  }
+}
+
 .content h1 {
   font-size: 40px;
+  text-align: center;
 }
 
 .content h2 {
   font-size: 24px;
+  text-align: center;
 }
 
 .image-banner h1 {
   font-size: 40px;
+  text-align: center;
 }
 
 .image-banner h2 {
   font-size: 24px;
+  text-align: center;
 }
 
 .image-banner p {

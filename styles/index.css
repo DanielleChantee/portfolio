@@ -17,7 +17,41 @@
 
 @media (max-width: 480px) {
   .main-image-banner {
-    height: 350px;
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .image-banner .image-banner-content {
+    padding: 20px 12px;
+    min-height: 400px;
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+  
+  .image-banner .image-banner-content h1 {
+    margin-bottom: 8px;
+  }
+  
+  .image-banner .image-banner-content h2 {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  
+  .image-banner .image-banner-content p {
+    font-size: 12px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .image-banner .image-banner-content .button-row {
+    margin-top: 12px;
+    gap: 10px;
+  }
+  
+  .image-banner .image-banner-content .button-row .btn {
+    max-width: 100%;
+    padding: 10px 20px;
+    font-size: 14px;
   }
 }
 
@@ -34,29 +68,111 @@
   box-sizing: border-box;
 }
 
+.image-banner .image-banner-content .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.image-banner .image-banner-content .button-row .btn {
+  flex: 0 1 auto;
+  min-width: 140px;
+}
+
 @media (max-width: 768px) {
   .image-banner .image-banner-content {
-    padding: 20px;
+    padding: 20px 16px;
   }
   
   .image-banner .image-banner-content p {
     font-size: 13px;
+    margin-bottom: 24px;
+  }
+  
+  .image-banner .image-banner-content .button-row {
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    width: 100%;
+  }
+  
+  .image-banner .image-banner-content .button-row .btn {
+    width: 100%;
+    max-width: 280px;
+    margin: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-image-banner {
+    height: auto;
+    min-height: 400px;
+  }
+  
+  .image-banner .image-banner-content {
+    padding: 20px 12px;
+    min-height: 400px;
+    justify-content: flex-start;
+    padding-top: 40px;
+  }
+  
+  .image-banner .image-banner-content h1 {
+    margin-bottom: 8px;
+    font-size: 36px;
+  }
+  
+  .image-banner .image-banner-content h2 {
+    margin-bottom: 12px;
+    font-size: 16px;
+  }
+  
+  .image-banner .image-banner-content p {
+    font-size: 12px;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .image-banner .image-banner-content .button-row {
+    margin-top: 12px;
+    gap: 10px;
+  }
+  
+  .image-banner .image-banner-content .button-row .btn {
+    max-width: 100%;
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+  
+  .image-banner p {
+    margin-bottom: 20px;
   }
 }
 .image-banner h1,
 .content h1 {
   font-size: 50px;
   margin-bottom: 10px;
+  text-align: center;
 }
 .image-banner h2,
 .content h2 {
   font-size: 20px;
   margin-bottom: 10px;
+  text-align: center;
 }
 .image-banner p,
 .content p {
   font-size: 14px;
   margin-bottom: 40px;
+}
+
+@media (max-width: 480px) {
+  .image-banner p {
+    margin-bottom: 20px;
+  }
 }
 
 /* -------- */
@@ -172,11 +288,19 @@
 }
 
 .clients.content-section .content {
-  margin: 0 70px auto;
+  margin: 0 auto;
+  text-align: center;
+  max-width: 800px;
+  padding: 40px 20px;
 }
 
 .clients .content {
   color: black;
+}
+
+.clients .content h1,
+.clients .content h2 {
+  text-align: center;
 }
 
 .clients .content .btn {
@@ -323,34 +447,6 @@
   }
 }
 
-#services-marquee {
-  overflow: hidden;
-  width: 100%;
-  background-color: #ffffff;
-  border: solid;
-  font-family: "Poppins", sans-serif;
-  font-size: 50px;
-  color: #000000;
-  white-space: nowrap;
-  position: relative;
-  height: 100px;
-  display: flex;
-  align-items: center;
-}
-
-@media (max-width: 768px) {
-  #services-marquee {
-    font-size: 32px;
-    height: 80px;
-  }
-}
-
-@media (max-width: 480px) {
-  #services-marquee {
-    font-size: 24px;
-    height: 60px;
-  }
-}
 .service-heading,
 .service-paragraph {
   color: white;

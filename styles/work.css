@@ -5,6 +5,70 @@ body {
   padding: 0;
 }
 
+/* Project Intro Banner */
+.project-intro-banner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  background: #f4f4f4;
+  padding: 60px 20px;
+  border-radius: 20px;
+  flex-wrap: wrap;
+  text-align: center;
+  margin: 40px auto;
+  max-width: 1200px;
+}
+
+.project-intro-banner > div {
+  flex: 1 1 300px;
+}
+
+.project-intro-banner > div:first-child {
+  max-width: 400px;
+}
+
+.project-intro-banner > div:nth-child(2) {
+  max-width: 500px;
+}
+
+.project-intro-banner h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.project-intro-banner p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #333;
+}
+
+.project-intro-card {
+  height: 400px;
+}
+
+.project-intro-banner-item-left {
+  max-width: 400px;
+}
+
+.project-intro-banner-item-right {
+  max-width: 500px;
+}
+
+.project-intro-banner-item-right h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+
+.project-intro-banner-item-right p {
+  margin-bottom: 30px;
+  font-size: 1rem;
+  color: #333;
+}
+
+
 .quick-view-gallery-card-overlay h4,
 .hover-gallery-card-overlay h4 {
   display: none;

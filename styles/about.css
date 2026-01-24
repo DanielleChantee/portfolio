@@ -15,7 +15,7 @@
 
 .about .content {
   color: black;
-  max-width: 800px;
+  max-width: 1000px;
   padding: 40px 20px;
   margin: 0 auto;
   text-align: center;
@@ -25,6 +25,7 @@
   text-align: center;
   line-height: 1.7;
   margin-bottom: 20px;
+  max-width: 100%;
 }
 
 .about h2 {
@@ -33,9 +34,14 @@
 }
 
 @media screen and (min-width: 990px) {
+  .about .content {
+    max-width: 1400px;
+    padding: 60px 60px;
+  }
+  
   .about p {
     margin: 40px auto;
-    max-width: 50%;
+    max-width: 90%;
   }
 }
 
