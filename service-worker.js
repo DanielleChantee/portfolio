@@ -18,7 +18,6 @@ const PRECACHE_ASSETS = [
   "/portfolio/styles/header.css",
   "/portfolio/styles/footer.css",
   "/portfolio/styles/variables.css",
-  "/portfolio/styles/dark-mode.css",
   "/portfolio/scripts/scripts.js",
   "/portfolio/images/logos/logo-white-small.jpg",
   "/portfolio/images/profile-picture.jpeg"

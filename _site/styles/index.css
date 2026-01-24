@@ -59,7 +59,7 @@
 }
 
 .image-banner .image-banner-content {
-  color: black;
+  color: var(--text-black);
   height: 100%;
   width: 100%;
   display: flex;
@@ -70,6 +70,7 @@
   padding: 20px;
   box-sizing: border-box;
   max-width: 100%;
+  transition: color var(--transition-normal), background-color var(--transition-normal);
 }
 
 .image-banner .image-banner-content .button-row {
@@ -203,10 +204,11 @@
   width: 40px;
   height: 40px;
   border: 4px solid rgba(0, 0, 0, 0.1);
-  border-top-color: #000;
+  border-top-color: var(--bg-black);
   border-radius: 50%;
   animation: spin 0.8s linear infinite;
   position: absolute;
+  transition: border-color var(--transition-normal);
 }
 
 @keyframes spin {
@@ -295,9 +297,10 @@ img[loading="lazy"] {
   max-width: 100%;
   overflow: hidden;
   white-space: nowrap;
-  background-color: black;
+  background-color: var(--bg-black);
   box-sizing: border-box;
   padding: 50px 0;
+  transition: background-color var(--transition-normal);
 }
 
 .client-logo-images {
@@ -335,9 +338,12 @@ img[loading="lazy"] {
 
 /* Client content section */
 .clients.content-section {
-  background-color: white;
+  background-color: var(--bg-white);
   height: max-content;
   padding: 40px 0;
+  transition: background-color var(--transition-normal);
+  position: relative;
+  overflow: visible;
 }
 
 .clients.content-section .content {
@@ -348,7 +354,8 @@ img[loading="lazy"] {
 }
 
 .clients .content {
-  color: black;
+  color: var(--text-black);
+  transition: color var(--transition-normal);
 }
 
 .clients .content h1,
@@ -357,20 +364,17 @@ img[loading="lazy"] {
 }
 
 .clients .content .btn {
-  background-color: black;
-  color: white;
+  background-color: var(--bg-black);
+  color: var(--text-white);
 }
 /* Clients carousel */
 .clients #carousel {
   padding: 40px 0;
+  overflow: visible;
+  position: relative;
+  margin: 0 auto;
 }
 
-.splide__arrow--prev {
-  right: 100px;
-}
-.splide__arrow--next {
-  left: 100px;
-}
 .clients #carousel img {
   /* padding: 5px; */
   /* border: 1px solid rgba(0, 0, 0, 0.1); */
@@ -379,20 +383,40 @@ img[loading="lazy"] {
 
 .clients #carousel .splide__arrows {
   position: absolute;
-  right: 150px;
-  top: 0;
-  margin-bottom: auto;
+  width: calc(100% + 160px);
+  top: 50%;
+  left: -80px;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 1000;
 }
 
 .clients #carousel .splide__arrow {
-  background: black;
+  background: var(--bg-black);
   height: 50px;
   width: 50px;
   opacity: 1;
+  transition: background-color var(--transition-normal);
+  position: relative;
+  pointer-events: all;
+  margin: 0;
+}
+
+.clients #carousel .splide__arrow--prev {
+  left: -80px;
+  right: auto;
+}
+
+.clients #carousel .splide__arrow--next {
+  right: -80px;
+  left: auto;
 }
 
 .clients #carousel .splide__arrow svg {
-  fill: white;
+  fill: var(--text-white);
+  transition: fill var(--transition-normal);
 }
 
 /* .clients #carousel .splide__slide {
@@ -421,16 +445,18 @@ img[loading="lazy"] {
 #services-marquee {
   overflow: hidden;
   width: 100%;
-  background-color: #ffffff;
+  background-color: var(--bg-white);
   border: solid;
+  border-color: var(--text-black);
   font-family: "Poppins", sans-serif;
   font-size: 50px;
-  color: #000000;
+  color: var(--text-black);
   white-space: nowrap;
   position: relative;
   height: 100px;
   display: flex;
   align-items: center;
+  transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
 }
 
 #services-marquee .marquee {
@@ -475,19 +501,21 @@ img[loading="lazy"] {
 }
 
 .service-heading {
-  color: white;
+  color: var(--text-white);
   text-align: center;
   margin-bottom: 15px;
   font-size: 18px;
+  transition: color var(--transition-normal);
 }
 
 .service-paragraph {
-  color: white;
+  color: var(--text-white);
   text-align: center;
   line-height: 1.6;
   max-width: 300px;
   margin: 0 auto;
   font-size: 14px;
+  transition: color var(--transition-normal);
 }
 
 @media (max-width: 768px) {
@@ -502,7 +530,7 @@ img[loading="lazy"] {
 
 .service-heading,
 .service-paragraph {
-  color: white;
+  color: var(--text-white);
 }
 
 .service-item {

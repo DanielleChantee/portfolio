@@ -6,11 +6,13 @@
 }
 
 .email-footer {
-  color: black;
+  color: var(--text-black);
   width: 25px;
+  transition: color var(--transition-normal), filter var(--transition-normal);
 }
 
 .linkedin-logo {
   filter: brightness(0);
   height: 17px;
+  transition: filter var(--transition-normal);
 }

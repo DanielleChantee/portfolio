@@ -1,5 +1,5 @@
 form {
-  background: #fff;
+  background: var(--bg-white);
   padding: 20px;
   border-radius: 5px;
   display: flex;
@@ -8,6 +8,7 @@ form {
   margin: auto;
   max-width: 700px;
   text-align: center;
+  transition: background-color var(--transition-normal);
 }
 
 .form-group {
@@ -19,7 +20,8 @@ label {
   display: block;
   margin-bottom: 8px;
   font-weight: 500;
-  color: #333;
+  color: var(--text-gray);
+  transition: color var(--transition-normal);
 }
 
 input,
@@ -27,19 +29,19 @@ textarea {
   width: 100%;
   padding: 12px;
   margin: 8px 0 4px 0;
-  border: 2px solid #ccc;
+  border: 2px solid var(--color-gray-dark);
   border-radius: 5px;
   font-family: "Poppins", sans-serif;
   font-size: 14px;
-  transition: outline 0.2s ease, border-color 0.2s ease;
+  transition: outline 0.2s ease, border-color 0.2s ease, background-color var(--transition-normal), color var(--transition-normal);
   box-sizing: border-box;
 }
 
 input:focus,
 textarea:focus {
-  outline: 3px solid #000;
+  outline: 3px solid var(--text-black);
   outline-offset: 2px;
-  border-color: #000;
+  border-color: var(--text-black);
 }
 
 input:focus:not(:focus-visible),
@@ -49,9 +51,9 @@ textarea:focus:not(:focus-visible) {
 
 input:focus-visible,
 textarea:focus-visible {
-  outline: 3px solid #000;
+  outline: 3px solid var(--text-black);
   outline-offset: 2px;
-  border-color: #000;
+  border-color: var(--text-black);
 }
 
 /* Only show validation states after user interaction */
@@ -113,15 +115,15 @@ textarea.error {
 
 button {
   text-decoration: none;
-  background-color: black;
-  color: white;
+  background-color: var(--bg-black);
+  color: var(--text-white);
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 8px;
   margin: 5px auto;
   border-radius: 40px;
-  transition: background-color 0.4s, opacity 0.3s ease;
+  transition: background-color 0.4s, opacity 0.3s ease, color var(--transition-normal);
   cursor: pointer;
   border: none;
   width: max-content;
@@ -129,11 +131,11 @@ button {
 }
 
 button:hover:not(:disabled) {
-  background-color: #252525;
+  background-color: var(--color-gray-dark);
 }
 
 button:focus {
-  outline: 3px solid #000;
+  outline: 3px solid var(--text-black);
   outline-offset: 2px;
 }
 
@@ -142,7 +144,7 @@ button:focus:not(:focus-visible) {
 }
 
 button:focus-visible {
-  outline: 3px solid #000;
+  outline: 3px solid var(--text-black);
   outline-offset: 2px;
 }
 
@@ -162,12 +164,14 @@ form .btn {
 
 /* ------- */
 .contact.content-section {
-  background-color: white;
+  background-color: var(--bg-white);
   min-height: 100px;
+  transition: background-color var(--transition-normal);
 }
 
 .contact.content-section .content {
-  color: black;
+  color: var(--text-black);
+  transition: color var(--transition-normal);
 }
 
 .contact.content-section h2 {
@@ -180,8 +184,8 @@ form .btn {
 }
 
 .contact.content-section .button-row .btn {
-  background-color: black;
-  color: white;
+  background-color: var(--bg-black);
+  color: var(--text-white);
 }
 
 /* ---------- */
@@ -194,10 +198,11 @@ form .btn {
 }
 
 .contact-options a {
-  color: white;
+  color: var(--text-white);
   display: block;
   text-decoration: none;
   margin: 10px 0;
+  transition: color var(--transition-normal);
 }
 
 .contact-options a:hover {

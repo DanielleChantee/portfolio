@@ -1,8 +1,9 @@
 body {
   font-family: "DM Sans", sans-serif;
-  background-color: #f9f9f9;
+  background-color: var(--bg-white);
   margin: 0;
   padding: 0;
+  transition: background-color var(--transition-normal);
 }
 
 /* Anchor scroll offset for sticky header */
@@ -19,13 +20,14 @@ body {
   justify-content: center;
   align-items: center;
   gap: 40px;
-  background: #f4f4f4;
+  background: var(--bg-gray-light);
   padding: 60px 20px;
   border-radius: 20px;
   flex-wrap: wrap;
   text-align: center;
   margin: 40px auto;
   max-width: 1200px;
+  transition: background-color var(--transition-normal);
 }
 
 .project-intro-banner > div {
@@ -44,12 +46,15 @@ body {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
+  color: var(--text-black);
+  transition: color var(--transition-normal);
 }
 
 .project-intro-banner p {
   margin-bottom: 30px;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-gray);
+  transition: color var(--transition-normal);
 }
 
 .project-intro-card {
@@ -68,12 +73,15 @@ body {
   font-size: 2rem;
   font-weight: bold;
   margin-bottom: 20px;
+  color: var(--text-black);
+  transition: color var(--transition-normal);
 }
 
 .project-intro-banner-item-right p {
   margin-bottom: 30px;
   font-size: 1rem;
-  color: #333;
+  color: var(--text-gray);
+  transition: color var(--transition-normal);
 }
 
 
@@ -95,7 +103,7 @@ body {
   position: relative;
   z-index: 0;
   height: 400px;
-  color: #fff;
+  color: var(--text-white);
   border-radius: 16px;
   overflow: hidden;
   background-size: cover;
@@ -103,6 +111,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: color var(--transition-normal);
 }
 
 .quick-view-gallery-card-overlay {
@@ -126,21 +135,24 @@ body {
 
 .quick-view-gallery-card-overlay h4 {
   font-weight: 600;
-  color: #ddd;
+  color: var(--color-gray-darker);
   font-size: 0.9rem;
+  transition: color var(--transition-normal);
 }
 
 .quick-view-gallery-card-overlay h2 {
   font-weight: 700;
-  color: #fff;
+  color: var(--text-white);
   font-size: 1.3rem;
+  transition: color var(--transition-normal);
 }
 
 .quick-view-gallery-card-overlay p {
-  color: #eee;
+  color: var(--color-gray-dark);
   font-size: 0.95rem;
   margin-top: 0;
   line-height: 1.4;
+  transition: color var(--transition-normal);
 }
 
 .quick-view-gallery-card-footer {
@@ -177,17 +189,19 @@ body {
 .quick-view-gallery-card-footer .quick-view-meta .text span {
   font-size: 0.8rem;
   line-height: 1.2;
-  color: #fff;
+  color: var(--text-white);
+  transition: color var(--transition-normal);
 }
 
 .quick-view-gallery-card-footer .quick-view-view-btn {
-  background: #fff;
-  color: #000;
+  background: var(--bg-white);
+  color: var(--text-black);
   border-radius: 999px;
   padding: 0.35rem 1.25rem;
   font-weight: 600;
   font-size: 0.85rem;
   text-decoration: none;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 /* Quick View Popup Modal on Hover Styles */
@@ -206,28 +220,29 @@ body {
 }
 
 .quick-view-popup-content {
-  background: #fff;
-  color: #000;
+  background: var(--bg-white);
+  color: var(--text-black);
   max-width: 600px;
   padding: 2rem;
   border-radius: 12px;
   text-align: center;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .popup-gallery-link-btn {
   display: inline-block;
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
-  background-color: #000;
-  color: #fff;
+  background-color: var(--bg-black);
+  color: var(--text-white);
   border-radius: 6px;
   text-decoration: none;
   font-weight: 600;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s ease, color var(--transition-normal);
 }
 
 .popup-gallery-link-btn:hover {
-  background-color: #333;
+  background-color: var(--color-gray-dark);
 }
 
 .quick-view-hover-trigger:hover .quick-view-popup {
@@ -240,11 +255,12 @@ body {
   top: 1.5rem;
   right: 1.5rem;
   background: transparent;
-  color: #fff;
+  color: var(--text-white);
   font-size: 2rem;
   border: none;
   cursor: pointer;
   z-index: 1001;
+  transition: color var(--transition-normal);
 }
 
 .hover-gallery {
@@ -261,7 +277,7 @@ body {
   position: relative;
   z-index: 0;
   height: 400px;
-  color: #fff;
+  color: var(--text-white);
   border-radius: 16px;
   overflow: hidden;
   background-size: cover;
@@ -269,6 +285,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  transition: color var(--transition-normal);
 }
 
 .hover-gallery-card-overlay {
@@ -292,14 +309,16 @@ body {
 
 .hover-gallery-card-overlay h4 {
   font-weight: 600;
-  color: #ddd;
+  color: var(--color-gray-darker);
   font-size: 0.9rem;
+  transition: color var(--transition-normal);
 }
 
 .hover-gallery-card-overlay h2 {
   font-weight: 700;
-  color: #fff;
+  color: var(--text-white);
   font-size: 1.3rem;
+  transition: color var(--transition-normal);
 }
 
 .hover-gallery-card-footer {
@@ -331,27 +350,29 @@ body {
 .hover-meta .text span {
   font-size: 0.8rem;
   line-height: 1.2;
-  color: #fff;
+  color: var(--text-white);
+  transition: color var(--transition-normal);
 }
 
 .hover-view-btn {
-  background: #fff;
-  color: #000;
+  background: var(--bg-white);
+  color: var(--text-black);
   border-radius: 999px;
   padding: 0.35rem 1.25rem;
   font-weight: 600;
   font-size: 0.85rem;
   text-decoration: none;
+  transition: background-color var(--transition-normal), color var(--transition-normal);
 }
 
 .hover-gallery-card-hover {
   position: absolute;
   inset: 0;
   background-color: rgba(0, 0, 0, 0.9);
-  color: #fff;
+  color: var(--text-white);
   padding: 1.5rem;
   opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: opacity 0.3s ease, color var(--transition-normal);
   z-index: 2;
   display: flex;
   align-items: center;
