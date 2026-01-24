@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Shopify Portfolio | Ecommerce Stores, Themes & Custom Development
-description: Explore the portfolio of Danielle Adeyemo, showcasing expert Shopify development projects, custom themes, app integrations, and e-commerce store optimisations.
+title: Product Engineering Portfolio | Frontend Development, Shopify Web Development & Scalable Systems
+description: Portfolio showcasing scalable system development through frontend engineering and Shopify web development, performance-led implementations, and product engineering solutions, specialising in commerce platforms including Shopify.
 permalink: /work.html
 ---
 
@@ -11,292 +11,15 @@ permalink: /work.html
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery</title>
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700&family=Poppins:wght@500;600;700&display=swap"
-      rel="stylesheet"
-    />
     <link rel="stylesheet" href="./styles/client-work.css" />
-    <style>
-      body {
-        font-family: "DM Sans", sans-serif;
-        background-color: #f9f9f9;
-        margin: 0;
-        padding: 0;
-      }
-      .quick-view-gallery-card-overlay h4,
-      .hover-gallery-card-overlay h4 {
-        display: none;
-      }
-      .quick-view-gallery {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-        gap: 1.5rem;
-        padding: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-      .quick-view-gallery-card {
-        position: relative;
-        z-index: 0;
-        height: 400px;
-        color: #fff;
-        border-radius: 16px;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .quick-view-gallery-card-overlay {
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.85),
-          rgba(0, 0, 0, 0.5)
-        );
-        padding: 1.5rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-      .quick-view-gallery-card-overlay h4,
-      .quick-view-gallery-card-overlay h2 {
-        font-family: "Poppins", sans-serif;
-        margin: 0 0 0.5rem 0;
-      }
-      .quick-view-gallery-card-overlay h4 {
-        font-weight: 600;
-        color: #ddd;
-        font-size: 0.9rem;
-      }
-      .quick-view-gallery-card-overlay h2 {
-        font-weight: 700;
-        color: #fff;
-        font-size: 1.3rem;
-      }
-      .quick-view-gallery-card-overlay p {
-        color: #eee;
-        font-size: 0.95rem;
-        margin-top: 0;
-        line-height: 1.4;
-      }
-      .quick-view-gallery-card-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.75);
-        padding: 0.75rem 1rem;
-        backdrop-filter: blur(8px);
-      }
-      .quick-view-gallery-card-footer .quick-view-meta {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .quick-view-gallery-card-footer .quick-view-meta img {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-      }
-      /* Hide all thumbnail images */
-      .thumbnail-icon {
-        display: none;
-      }
-      .quick-view-gallery-card-footer .quick-view-meta .text {
-        display: flex;
-        flex-direction: column;
-      }
-      .quick-view-gallery-card-footer .quick-view-meta .text span {
-        font-size: 0.8rem;
-        line-height: 1.2;
-        color: #fff;
-      }
-      .quick-view-gallery-card-footer .quick-view-view-btn {
-        background: #fff;
-        color: #000;
-        border-radius: 999px;
-        padding: 0.35rem 1.25rem;
-        font-weight: 600;
-        font-size: 0.85rem;
-        text-decoration: none;
-      }
-      /* Quick View Popup Modal on Hover Styles */
-      .quick-view-hover-trigger {
-        position: relative;
-      }
-      .quick-view-popup {
-        position: fixed;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        display: none;
-        justify-content: center;
-        align-items: center;
-        z-index: 999;
-      }
-      .quick-view-popup-content {
-        background: #fff;
-        color: #000;
-        max-width: 600px;
-        padding: 2rem;
-        border-radius: 12px;
-        text-align: center;
-      }
-      .popup-gallery-link-btn {
-        display: inline-block;
-        margin-top: 1.5rem;
-        padding: 0.75rem 1.5rem;
-        background-color: #000;
-        color: #fff;
-        border-radius: 6px;
-        text-decoration: none;
-        font-weight: 600;
-        transition: background-color 0.3s ease;
-      }
-
-      .popup-gallery-link-btn:hover {
-        background-color: #333;
-      }
-      .quick-view-hover-trigger:hover .quick-view-popup {
-        display: flex;
-      }
-
-      /* Popup Gallery Close Button Styles */
-      .popup-gallery-close-btn {
-        position: absolute;
-        top: 1.5rem;
-        right: 1.5rem;
-        background: transparent;
-        color: #fff;
-        font-size: 2rem;
-        border: none;
-        cursor: pointer;
-        z-index: 1001;
-      }
-
-      .hover-gallery {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        gap: 1.5rem;
-        padding: 2rem;
-        max-width: 1200px;
-        margin: 0 auto;
-      }
-
-      /* Hover Gallery Card Styles */
-      .hover-gallery-card {
-        position: relative;
-        z-index: 0;
-        height: 400px;
-        color: #fff;
-        border-radius: 16px;
-        overflow: hidden;
-        background-size: cover;
-        background-position: center;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
-      }
-      .hover-gallery-card-overlay {
-        background: linear-gradient(
-          to top,
-          rgba(0, 0, 0, 0.85),
-          rgba(0, 0, 0, 0.5)
-        );
-        padding: 1.5rem;
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: flex-end;
-      }
-      .hover-gallery-card-overlay h4,
-      .hover-gallery-card-overlay h2 {
-        font-family: "Poppins", sans-serif;
-        margin: 0 0 0.5rem 0;
-      }
-      .hover-gallery-card-overlay h4 {
-        font-weight: 600;
-        color: #ddd;
-        font-size: 0.9rem;
-      }
-      .hover-gallery-card-overlay h2 {
-        font-weight: 700;
-        color: #fff;
-        font-size: 1.3rem;
-      }
-      .hover-gallery-card-footer {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background-color: rgba(0, 0, 0, 0.75);
-        padding: 0.75rem 1rem;
-        backdrop-filter: blur(8px);
-      }
-      .hover-meta {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-      }
-      .hover-meta img {
-        width: 28px;
-        height: 28px;
-        border-radius: 50%;
-      }
-      .hover-meta .text {
-        display: flex;
-        flex-direction: column;
-      }
-      .hover-meta .text span {
-        font-size: 0.8rem;
-        line-height: 1.2;
-        color: #fff;
-      }
-      .hover-view-btn {
-        background: #fff;
-        color: #000;
-        border-radius: 999px;
-        padding: 0.35rem 1.25rem;
-        font-weight: 600;
-        font-size: 0.85rem;
-        text-decoration: none;
-      }
-      .hover-gallery-card-hover {
-        position: absolute;
-        inset: 0;
-        background-color: rgba(0, 0, 0, 0.9);
-        color: #fff;
-        padding: 1.5rem;
-        opacity: 0;
-        transition: opacity 0.3s ease;
-        z-index: 2;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-      .hover-gallery-card:hover .hover-gallery-card-hover {
-        opacity: 1;
-      }
-
-      @media (max-width: 1024px) {
-        .hover-gallery {
-          grid-template-columns: repeat(2, 1fr);
-        }
-      }
-
-      @media (max-width: 600px) {
-        .hover-gallery {
-          grid-template-columns: 1fr;
-        }
-      }
-    </style>
+    <link rel="stylesheet" href="./styles/work.css" />
   </head>
   <body>
     <!-- IMAGE BANNER -->
     <div class="client-work-image-banner image-banner">
       <div class="image-banner-content">
         <h1 class="animate__animated animate__bounce">Client Work</h1>
-        <h2>Clients I’ve worked with</h2>
+        <h2>Clients I've worked with</h2>
         <div class="button-row"></div>
       </div>
     </div>
@@ -403,7 +126,7 @@ permalink: /work.html
               <h4>Full Theme Rebuilds</h4>
               <h2>Theme Replacements</h2>
               <p>
-                Storefronts engineered from the ground up—custom sections,
+                Storefronts engineered from the ground up, custom sections,
                 layouts, and logic tailored to client needs.
               </p>
             </div>
@@ -597,7 +320,7 @@ permalink: /work.html
             <p>
               Worked on Shopify theme enhancements for Fudge Kitchen, a premium
               dessert brand. This included direct code modifications across
-              Liquid sections, templates, and settings to tailor the store’s
+              Liquid sections, templates, and settings to tailor the store's
               layout and behaviour.
             </p>
             <p>
@@ -626,7 +349,7 @@ permalink: /work.html
             <h4>Shopify Theme Development</h4>
             <h2>ESL Shop Store</h2>
             <p>
-              Custom Shopify enhancements for ESL’s official store, with app
+              Custom Shopify enhancements for ESL's official store, with app
               integrations and responsive design.
             </p>
           </div>
@@ -716,7 +439,7 @@ permalink: /work.html
               wireframes into live, fully responsive Shopify pages and sections.
             </p>
             <p>
-              Modified core theme code—including sections and templates—to
+              Modified core theme code, including sections and templates, to
               support custom UX patterns, eco-conscious branding, and accessible
               product presentation. Built with a mobile-first approach to ensure
               clean, intuitive navigation across all devices.
@@ -880,7 +603,7 @@ permalink: /work.html
             <h2>QIDI Tech Store</h2>
             <p>
               Led the full development of a custom article template section for
-              QIDI Tech’s Shopify theme across both EU and global stores. Built
+              QIDI Tech's Shopify theme across both EU and global stores. Built
               a fully responsive, editor-configurable layout using Liquid, SCSS,
               and JavaScript. Features include a scroll-linked table of
               contents, toggleable excerpt view, content-first or content-last
@@ -889,7 +612,7 @@ permalink: /work.html
             <p>
               Designed for clean section/block targeting without generic loops
               or dynamic IDs, ensuring clarity in Shopify Theme Editor. Matched
-              QIDI’s visual identity with refined typography, full-width
+              QIDI's visual identity with refined typography, full-width
               imagery, and responsive dropdown navigation. Collaborated on UX
               refinements such as sticky headers, comment support, and scalable
               mobile styling.
@@ -992,7 +715,7 @@ permalink: /work.html
             <h2>Nomad Essentials</h2>
             <p>
               Built a custom, mobile-friendly theme that enhanced user
-              experience and reflected Nomad Essentials’ brand identity.
+              experience and reflected Nomad Essentials' brand identity.
             </p>
             <a
               href="https://nomadessentials.com"
@@ -1013,7 +736,7 @@ permalink: /work.html
             <h4>Shopify Product Photography</h4>
             <h2>Bright Home Goods</h2>
             <p>
-              Styled and photographed products to enhance Bright Home Goods’
+              Styled and photographed products to enhance Bright Home Goods'
               online presence.
             </p>
           </div>
@@ -1036,7 +759,7 @@ permalink: /work.html
             <h2>Bright Home Goods</h2>
             <p>
               Coordinated and executed product shoots, delivering high-quality
-              images that improved Bright Home Goods’ visual appeal online.
+              images that improved Bright Home Goods' visual appeal online.
             </p>
             <a
               href="https://brighthomegoods.com"

@@ -1,22 +1,76 @@
 .image-banner {
   height: 400px;
 }
+
+@media (max-width: 768px) {
+  .image-banner {
+    height: 350px;
+  }
+}
+
 .about.content-section {
   min-height: 300px;
   background-color: white;
 }
+
 .about .content {
   color: black;
+  max-width: 800px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about p {
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about h2 {
+  text-align: center;
+  line-height: 1.7;
 }
 
 @media screen and (min-width: 990px) {
   .about p {
     margin: 40px auto;
     max-width: 50%;
-    text-align: center;
   }
 }
+
 .about-features {
   background-color: black;
   min-height: 400px;
+}
+
+.about-features .content {
+  max-width: 800px;
+  padding: 40px 20px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-features p {
+  color: white;
+  text-align: center;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.about-features h2 {
+  color: white;
+  text-align: center;
+  line-height: 1.7;
+}
+
+.about-features strong {
+  color: white;
+}
+
+@media (max-width: 768px) {
+  .about .content,
+  .about-features .content {
+    padding: 20px;
+  }
 }

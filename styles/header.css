@@ -2,6 +2,10 @@
 header {
   background-color: black;
   padding: 10px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .logo {
@@ -30,17 +34,27 @@ nav {
 }
 
 .desktop-menu li {
-  padding: 5px;
-  font-size: 14px;
+  padding: 10px 15px;
+  font-size: 16px;
   text-transform: uppercase;
 }
 
 .desktop-menu li a {
   color: white;
   text-decoration: none;
+  font-size: 16px;
 }
+
 .desktop-menu li a:hover {
   text-decoration: underline;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
+
+.desktop-menu li a:focus {
+  outline: 2px solid white;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 /* Hamburger Menu */
@@ -53,6 +67,11 @@ nav {
   cursor: pointer;
   margin-left: auto;
   margin-right: 10px;
+  padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
 }
 
 .hamburger span {
@@ -68,19 +87,40 @@ nav {
   top: 0;
   left: -100%;
   height: 100%;
-  width: 80%;
+  width: 320px;
+  max-width: 80%;
   background-color: black;
   color: white;
   box-shadow: 4px 0 7px rgba(0, 0, 0, 0.1);
   transform: translateX(0);
   transition: left 0.4s ease-in-out;
-  z-index: 1;
+  z-index: 1000;
   display: flex;
   flex-direction: column;
 }
 
 .mobile-menu-wrapper.open {
   left: 0;
+}
+
+/* Mobile Menu Backdrop */
+.mobile-menu-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.mobile-menu-wrapper.open ~ .mobile-menu-backdrop,
+.mobile-menu-backdrop.active {
+  opacity: 1;
+  visibility: visible;
 }
 
 /* Menu Header with Close Button */
@@ -98,6 +138,11 @@ nav {
   cursor: pointer;
   margin-right: 0;
   padding: 10px;
+  min-width: 44px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .mobile-menu {
@@ -109,18 +154,29 @@ nav {
 .mobile-menu li {
   text-align: left;
   margin-bottom: 20px;
-  padding-left: 20px;
+  padding: 15px 20px;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
 }
 
 .mobile-menu li a {
   color: white;
-  font-size: 14px;
+  font-size: 16px;
   text-transform: uppercase;
   text-decoration: none;
+  width: 100%;
 }
 
 .mobile-menu li a:hover {
   text-decoration: underline;
+  opacity: 0.8;
+}
+
+.mobile-menu li a:focus {
+  outline: 2px solid white;
+  outline-offset: 4px;
+  border-radius: 2px;
 }
 
 /* Responsive Design */

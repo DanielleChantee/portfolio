@@ -65,16 +65,48 @@ document.addEventListener("DOMContentLoaded", function () {
   const hamburger = document.querySelector(".hamburger");
   const closeButton = document.querySelector(".mobile-menu-wrapper .close");
   const mobileMenuWrapper = document.querySelector(".mobile-menu-wrapper");
+  const mobileMenuBackdrop = document.querySelector(".mobile-menu-backdrop");
+  const body = document.body;
 
   if (hamburger && closeButton && mobileMenuWrapper) {
-    const toggleMenu = () => {
-      mobileMenuWrapper.classList.toggle("open");
+    const openMenu = () => {
+      mobileMenuWrapper.classList.add("open");
+      if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.classList.add("active");
+      }
+      body.style.overflow = "hidden";
+    };
+
+    const closeMenu = () => {
+      mobileMenuWrapper.classList.remove("open");
+      if (mobileMenuBackdrop) {
+        mobileMenuBackdrop.classList.remove("active");
+      }
+      body.style.overflow = "";
     };
 
     // Open/close menu with hamburger button
-    hamburger.addEventListener("click", toggleMenu);
+    hamburger.addEventListener("click", openMenu);
 
     // Close menu with close button
-    closeButton.addEventListener("click", toggleMenu);
+    closeButton.addEventListener("click", closeMenu);
+
+    // Close menu when clicking backdrop
+    if (mobileMenuBackdrop) {
+      mobileMenuBackdrop.addEventListener("click", closeMenu);
+    }
+
+    // Close menu when clicking a link inside it
+    const mobileMenuLinks = mobileMenuWrapper.querySelectorAll(".mobile-menu a");
+    mobileMenuLinks.forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    // Close menu on Escape key
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && mobileMenuWrapper.classList.contains("open")) {
+        closeMenu();
+      }
+    });
   }
 });

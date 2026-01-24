@@ -9,6 +9,18 @@
   text-align: center;
 }
 
+@media (max-width: 768px) {
+  .main-image-banner {
+    height: 400px;
+  }
+}
+
+@media (max-width: 480px) {
+  .main-image-banner {
+    height: 350px;
+  }
+}
+
 .image-banner .image-banner-content {
   color: black;
   height: 100%;
@@ -18,6 +30,18 @@
   justify-content: center;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.5);
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .image-banner .image-banner-content {
+    padding: 20px;
+  }
+  
+  .image-banner .image-banner-content p {
+    font-size: 13px;
+  }
 }
 .image-banner h1,
 .content h1 {
@@ -116,6 +140,19 @@
   width: 100px;
   height: 100px;
   margin-right: 100px;
+  transition: transform 0.3s ease;
+}
+
+.client-logo-images img:hover {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .client-logo-images img {
+    width: 80px;
+    height: 80px;
+    margin-right: 60px;
+  }
 }
 
 @keyframes scrollLogos {
@@ -249,11 +286,69 @@
 .service-item {
   box-sizing: border-box;
   flex: 1 1 25%;
+  max-width: 350px;
+  margin: 0 auto 30px;
 }
 
 @media screen and (max-width: 768px) {
   .service-item {
     flex: 1 1 50%;
+    max-width: 100%;
+  }
+}
+
+.service-heading {
+  color: white;
+  text-align: center;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.service-paragraph {
+  color: white;
+  text-align: center;
+  line-height: 1.6;
+  max-width: 300px;
+  margin: 0 auto;
+  font-size: 14px;
+}
+
+@media (max-width: 768px) {
+  .service-heading {
+    font-size: 16px;
+  }
+  
+  .service-paragraph {
+    font-size: 13px;
+  }
+}
+
+#services-marquee {
+  overflow: hidden;
+  width: 100%;
+  background-color: #ffffff;
+  border: solid;
+  font-family: "Poppins", sans-serif;
+  font-size: 50px;
+  color: #000000;
+  white-space: nowrap;
+  position: relative;
+  height: 100px;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 768px) {
+  #services-marquee {
+    font-size: 32px;
+    height: 80px;
+  }
+}
+
+@media (max-width: 480px) {
+  #services-marquee {
+    font-size: 24px;
+    height: 60px;
   }
 }
 .service-heading,

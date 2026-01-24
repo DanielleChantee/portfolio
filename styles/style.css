@@ -2,6 +2,19 @@
 body {
   margin: 0;
   padding: 0;
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body {
+    scroll-behavior: auto;
+  }
+  
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* Text */
@@ -45,6 +58,17 @@ h4 {
 
 .btn:hover {
   background-color: #252525;
+  transform: translateY(-1px);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+.btn:focus {
+  outline: 2px solid white;
+  outline-offset: 2px;
+}
+
+.btn:active {
+  transform: scale(0.98);
 }
 
 /* Button Glow Effect */
@@ -76,7 +100,6 @@ h4 {
   }
 }
 
-/* ------- */
 .content-section {
   background-color: black;
   min-height: 800px;
@@ -88,17 +111,92 @@ h4 {
   width: 100%;
 }
 
+@media (max-width: 768px) {
+  .content-section {
+    min-height: 400px;
+  }
+}
+
 .content-section .content {
   color: white;
   justify-content: center;
   align-items: center;
   margin: auto;
+  max-width: 800px;
+  padding: 40px 20px;
 }
 
 .content-section .button-row .btn {
   background-color: white;
   color: black;
   margin-bottom: 40px;
+  padding: 12px 24px;
+  min-height: 44px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.content h1 {
+  font-size: 40px;
+}
+
+.content h2 {
+  font-size: 24px;
+}
+
+.image-banner h1 {
+  font-size: 40px;
+}
+
+.image-banner h2 {
+  font-size: 24px;
+}
+
+.image-banner p {
+  font-size: 16px;
+}
+
+.image-banner h2,
+.content h2 {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.image-banner p,
+.content p {
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (max-width: 768px) {
+  .content h1,
+  .image-banner h1 {
+    font-size: 36px;
+  }
+  
+  .content h2,
+  .image-banner h2 {
+    font-size: 18px;
+  }
+  
+  .content-section .content {
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content h1,
+  .image-banner h1 {
+    font-size: 28px;
+  }
+  
+  .content h2,
+  .image-banner h2 {
+    font-size: 16px;
+  }
 }
 
 /* Footer */
