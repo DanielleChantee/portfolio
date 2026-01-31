@@ -31,16 +31,17 @@ document.addEventListener("DOMContentLoaded", function () {
   // Register service worker
   registerServiceWorker();
   /**
-   * Initialize Splide Carousel for Main Project Gallery
+   * Initialize Splide Carousel for Clients Section (Main Project Gallery)
    * Shows loading state while carousel initializes
+   * Scoped to .clients section to avoid conflicts
    */
-  const carouselElement = document.querySelector("#carousel");
-  if (carouselElement) {
+  const clientsCarouselElement = document.querySelector(".clients #carousel, .clients .clients-carousel");
+  if (clientsCarouselElement) {
     try {
       // Show loading state
-      carouselElement.classList.add("loading");
+      clientsCarouselElement.classList.add("loading");
       
-      const carousel = new Splide(carouselElement, {
+      const clientsCarousel = new Splide(clientsCarouselElement, {
         perPage: 4,
         rewind: true,
         autoplay: true,
@@ -48,6 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
         pauseOnHover: false,
         pauseOnFocus: false,
         pagination: false,
+        arrows: true,
         breakpoints: {
           1410: {
             perPage: 3,
@@ -62,22 +64,23 @@ document.addEventListener("DOMContentLoaded", function () {
       });
 
       // Remove loading state when carousel is ready
-      carousel.on("mounted", () => {
-        carouselElement.classList.remove("loading");
-        carouselElement.classList.add("is-initialized");
+      clientsCarousel.on("mounted", () => {
+        clientsCarouselElement.classList.remove("loading");
+        clientsCarouselElement.classList.add("is-initialized");
       });
 
-      carousel.mount();
+      clientsCarousel.mount();
     } catch (error) {
-      console.error("Error initializing main carousel:", error);
-      carouselElement.classList.remove("loading");
-      carouselElement.classList.add("error");
+      console.error("Error initializing clients carousel:", error);
+      clientsCarouselElement.classList.remove("loading");
+      clientsCarouselElement.classList.add("error");
     }
   }
 
   /**
    * Initialize Splide Carousel for Featured Clients
    * Shows loading state while carousel initializes
+   * Scoped to avoid conflicts with other carousels
    */
   const featuredClientsElement = document.querySelector("#featured-clients");
   if (featuredClientsElement) {
@@ -92,6 +95,8 @@ document.addEventListener("DOMContentLoaded", function () {
         interval: 4000,
         pauseOnHover: false,
         pauseOnFocus: false,
+        arrows: true,
+        pagination: false,
         breakpoints: {
           768: {
             perPage: 1,

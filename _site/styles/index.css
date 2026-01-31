@@ -181,25 +181,26 @@
 }
 
 /* -------- */
-/* Carousel Loading State */
-#carousel {
-  max-width: 1410px;
-  margin: 0 auto auto;
-  width: 100%;
-  overflow-x: hidden;
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Carousel Loading State - Scoped to avoid conflicts */
+.clients #carousel.loading,
+.clients .clients-carousel.loading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
   opacity: 0;
   transition: opacity 0.3s ease;
   min-height: 300px;
   position: relative;
 }
 
-#carousel.loading {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-#carousel.loading::after {
+.clients #carousel.loading::after,
+.clients .clients-carousel.loading::after {
   content: "";
   width: 40px;
   height: 40px;
@@ -211,70 +212,9 @@
   transition: border-color var(--transition-normal);
 }
 
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-#carousel.is-initialized {
+.clients #carousel.is-initialized,
+.clients .clients-carousel.is-initialized {
   opacity: 1;
-}
-
-#carousel .splide__track {
-  padding: 0 20px;
-}
-
-#carousel .splide__slide {
-  flex: 0 0 300px;
-  margin-right: 70px;
-}
-
-#carousel .splide__slide:last-child {
-  margin-right: 0;
-}
-
-#carousel .splide__slide img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
-
-@media (max-width: 1410px) {
-  #carousel {
-    max-width: calc(100% - 40px);
-  }
-
-  #carousel .splide__track {
-    padding: 0 20px;
-  }
-
-  #carousel .splide__slide {
-    flex: 0 0 auto;
-    width: calc(100% / 3 - 20px);
-    margin-right: 20px;
-  }
-
-  #carousel .splide__slide:last-child {
-    margin-right: 0;
-  }
-
-  #carousel .splide__slide img {
-    width: 100%;
-    height: auto;
-  }
-}
-
-@media (max-width: 1100px) {
-  #carousel .splide__slide {
-    width: calc(100% / 2 - 20px);
-  }
-}
-
-@media (max-width: 800px) {
-  #carousel .splide__slide {
-    width: 100%;
-  }
 }
 
 /* Image Loading States */
@@ -340,17 +280,20 @@ img[loading="lazy"] {
 .clients.content-section {
   background-color: var(--bg-white);
   height: max-content;
-  padding: 40px 0;
+  padding: 40px 80px;
   transition: background-color var(--transition-normal);
   position: relative;
-  overflow: visible;
+  overflow-x: visible;
+  overflow-y: visible;
+  width: 100%;
+  max-width: 100%;
 }
 
 .clients.content-section .content {
-  margin: 0 auto;
+  margin: 0 auto 0 auto;
   text-align: center;
   max-width: 800px;
-  padding: 40px 20px;
+  padding: 40px 20px 0 20px;
 }
 
 .clients .content {
@@ -368,24 +311,94 @@ img[loading="lazy"] {
   color: var(--text-white);
 }
 /* Clients carousel */
-.clients #carousel {
-  padding: 40px 0;
+.clients #carousel,
+.clients .clients-carousel {
+  padding: 80px 0 !important;
   overflow: visible;
   position: relative;
   margin: 0 auto;
+  max-width: 1410px;
+  width: 100%;
+  box-sizing: border-box;
+  margin-top: 0;
 }
 
-.clients #carousel img {
-  /* padding: 5px; */
-  /* border: 1px solid rgba(0, 0, 0, 0.1); */
+/* Clients carousel - Track and Slide Styles */
+.clients #carousel .splide__track,
+.clients .clients-carousel .splide__track {
+  padding: 0 20px;
+  overflow: visible;
+}
+
+.clients #carousel .splide__slide,
+.clients .clients-carousel .splide__slide {
+  flex: 0 0 300px;
+  margin-right: 70px;
+}
+
+.clients #carousel .splide__slide:last-child,
+.clients .clients-carousel .splide__slide:last-child {
+  margin-right: 0;
+}
+
+.clients #carousel .splide__slide img,
+.clients .clients-carousel .splide__slide img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
   border-radius: 10px;
 }
 
-.clients #carousel .splide__arrows {
+@media (max-width: 1410px) {
+  .clients #carousel,
+  .clients .clients-carousel {
+    max-width: calc(100% - 40px);
+  }
+
+  .clients #carousel .splide__track,
+  .clients .clients-carousel .splide__track {
+    padding: 0 20px;
+  }
+
+  .clients #carousel .splide__slide,
+  .clients .clients-carousel .splide__slide {
+    flex: 0 0 auto;
+    width: calc(100% / 3 - 20px);
+    margin-right: 20px;
+  }
+
+  .clients #carousel .splide__slide:last-child,
+  .clients .clients-carousel .splide__slide:last-child {
+    margin-right: 0;
+  }
+
+  .clients #carousel .splide__slide img,
+  .clients .clients-carousel .splide__slide img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+@media (max-width: 1100px) {
+  .clients #carousel .splide__slide,
+  .clients .clients-carousel .splide__slide {
+    width: calc(100% / 2 - 20px);
+  }
+}
+
+@media (max-width: 800px) {
+  .clients #carousel .splide__slide,
+  .clients .clients-carousel .splide__slide {
+    width: 100%;
+  }
+}
+
+.clients #carousel .splide__arrows,
+.clients .clients-carousel .splide__arrows {
   position: absolute;
-  width: calc(100% + 160px);
-  top: 50%;
-  left: -80px;
+  width: 100%;
+  top: 55%;
+  left: 0;
   transform: translateY(-50%);
   display: flex;
   justify-content: space-between;
@@ -393,28 +406,95 @@ img[loading="lazy"] {
   z-index: 1000;
 }
 
-.clients #carousel .splide__arrow {
+.clients #carousel .splide__arrow,
+.clients .clients-carousel .splide__arrow {
   background: var(--bg-black);
   height: 50px;
   width: 50px;
   opacity: 1;
   transition: background-color var(--transition-normal);
-  position: relative;
+  position: absolute;
   pointer-events: all;
   margin: 0;
 }
 
-.clients #carousel .splide__arrow--prev {
+.clients #carousel .splide__arrow--prev,
+.clients .clients-carousel .splide__arrow--prev {
   left: -80px;
   right: auto;
 }
 
-.clients #carousel .splide__arrow--next {
+.clients #carousel .splide__arrow--next,
+.clients .clients-carousel .splide__arrow--next {
   right: -80px;
   left: auto;
 }
 
-.clients #carousel .splide__arrow svg {
+@media (max-width: 1600px) {
+  .clients.content-section {
+    padding: 40px 60px;
+  }
+  
+  .clients #carousel,
+  .clients .clients-carousel {
+    padding: 80px 0 !important;
+  }
+  
+  .clients #carousel .splide__arrow--prev,
+  .clients .clients-carousel .splide__arrow--prev {
+    left: -60px;
+  }
+  
+  .clients #carousel .splide__arrow--next,
+  .clients .clients-carousel .splide__arrow--next {
+    right: -60px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .clients.content-section {
+    padding: 40px 50px;
+  }
+  
+  .clients #carousel,
+  .clients .clients-carousel {
+    padding: 80px 0 !important;
+  }
+  
+  .clients #carousel .splide__arrow--prev,
+  .clients .clients-carousel .splide__arrow--prev {
+    left: -50px;
+  }
+  
+  .clients #carousel .splide__arrow--next,
+  .clients .clients-carousel .splide__arrow--next {
+    right: -50px;
+  }
+}
+
+@media (max-width: 768px) {
+  .clients.content-section {
+    padding: 40px 0;
+  }
+  
+  .clients #carousel,
+  .clients .clients-carousel {
+    padding: 40px 20px;
+  }
+  
+  .clients #carousel .splide__arrow--prev,
+  .clients .clients-carousel .splide__arrow--prev {
+    left: 10px;
+  }
+  
+  .clients #carousel .splide__arrow--next,
+  .clients .clients-carousel .splide__arrow--next {
+    right: 10px;
+  }
+}
+
+.clients #carousel .splide__arrow svg,
+.clients .clients-carousel .splide__arrow svg {
   fill: var(--text-white);
   transition: fill var(--transition-normal);
 }
