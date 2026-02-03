@@ -7,82 +7,82 @@ image: /images/vantrue-image.jpg
 type: website
 ---
 
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Gallery</title>
-    
+
     <!-- Structured Data for Projects -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "ItemList",
-      "itemListElement": [
-        {
-          "@type": "CreativeWork",
-          "name": "Vantrue - Bespoke Shopify Theme",
-          "description": "Bespoke Shopify theme for a premium electronics brand, developed primarily from custom-coded sections built from scratch to meet high design and performance standards.",
-          "creator": {
-            "@type": "Person",
-            "name": "Danielle Adeyemo"
+      {
+        "@context": "https://schema.org",
+        "@type": "ItemList",
+        "itemListElement": [
+          {
+            "@type": "CreativeWork",
+            "name": "Vantrue - Bespoke Shopify Theme",
+            "description": "Bespoke Shopify theme for a premium electronics brand, developed primarily from custom-coded sections built from scratch to meet high design and performance standards.",
+            "creator": {
+              "@type": "Person",
+              "name": "Danielle Adeyemo"
+            },
+            "about": {
+              "@type": "Thing",
+              "name": "Shopify Theme Development"
+            },
+            "keywords": "Shopify, Theme Development, Custom Sections, E-commerce, Frontend Development"
           },
-          "about": {
-            "@type": "Thing",
-            "name": "Shopify Theme Development"
+          {
+            "@type": "CreativeWork",
+            "name": "Tuplus Store - Custom Shopify Theme",
+            "description": "Fully custom Shopify theme for Tuplus, built with advanced sections and mobile-first design. Includes bespoke product page layouts, filtering systems, and 3D model integration.",
+            "creator": {
+              "@type": "Person",
+              "name": "Danielle Adeyemo"
+            },
+            "url": "https://tuplus.com",
+            "about": {
+              "@type": "Thing",
+              "name": "Shopify Theme Development"
+            },
+            "keywords": "Shopify, Custom Theme, Liquid Sections, E-commerce, Frontend Development"
           },
-          "keywords": "Shopify, Theme Development, Custom Sections, E-commerce, Frontend Development"
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "Tuplus Store - Custom Shopify Theme",
-          "description": "Fully custom Shopify theme for Tuplus, built with advanced sections and mobile-first design. Includes bespoke product page layouts, filtering systems, and 3D model integration.",
-          "creator": {
-            "@type": "Person",
-            "name": "Danielle Adeyemo"
+          {
+            "@type": "CreativeWork",
+            "name": "Pets Purest Store - Shopify 2.0 Theme",
+            "description": "Customised Shopify 2.0 theme for Pets Purest, built with custom features and responsive layouts. Includes third-party app integrations and responsive experiences.",
+            "creator": {
+              "@type": "Person",
+              "name": "Danielle Adeyemo"
+            },
+            "url": "https://www.petspurest.com/",
+            "about": {
+              "@type": "Thing",
+              "name": "Shopify Theme Development"
+            },
+            "keywords": "Shopify 2.0, Theme Customisation, E-commerce, Frontend Development"
           },
-          "url": "https://tuplus.com",
-          "about": {
-            "@type": "Thing",
-            "name": "Shopify Theme Development"
-          },
-          "keywords": "Shopify, Custom Theme, Liquid Sections, E-commerce, Frontend Development"
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "Pets Purest Store - Shopify 2.0 Theme",
-          "description": "Customised Shopify 2.0 theme for Pets Purest, built with custom features and responsive layouts. Includes third-party app integrations and responsive experiences.",
-          "creator": {
-            "@type": "Person",
-            "name": "Danielle Adeyemo"
-          },
-          "url": "https://www.petspurest.com/",
-          "about": {
-            "@type": "Thing",
-            "name": "Shopify Theme Development"
-          },
-          "keywords": "Shopify 2.0, Theme Customisation, E-commerce, Frontend Development"
-        },
-        {
-          "@type": "CreativeWork",
-          "name": "ESL Shop Store - Shopify Theme Enhancements",
-          "description": "Custom Shopify enhancements for ESL's official store, with app integrations and responsive design. Includes theme modifications and front-end enhancements for esports merchandise.",
-          "creator": {
-            "@type": "Person",
-            "name": "Danielle Adeyemo"
-          },
-          "url": "https://shop.esl.com/",
-          "about": {
-            "@type": "Thing",
-            "name": "Shopify Theme Development"
-          },
-          "keywords": "Shopify, Theme Enhancement, E-commerce, Frontend Development"
-        }
-      ]
-    }
+          {
+            "@type": "CreativeWork",
+            "name": "ESL Shop Store - Shopify Theme Enhancements",
+            "description": "Custom Shopify enhancements for ESL's official store, with app integrations and responsive design. Includes theme modifications and front-end enhancements for esports merchandise.",
+            "creator": {
+              "@type": "Person",
+              "name": "Danielle Adeyemo"
+            },
+            "url": "https://shop.esl.com/",
+            "about": {
+              "@type": "Thing",
+              "name": "Shopify Theme Development"
+            },
+            "keywords": "Shopify, Theme Enhancement, E-commerce, Frontend Development"
+          }
+        ]
+      }
     </script>
-    
+
     <link rel="stylesheet" href="./styles/client-work.css" />
     <link rel="stylesheet" href="./styles/work.css" />
   </head>
@@ -97,10 +97,13 @@ type: website
     </div>
 
     <section class="project-intro-banner">
-      <div class="project-intro-banner-item project-intro-banner-item-left" id="vantrue">
+      <div
+        class="project-intro-banner-item project-intro-banner-item-left"
+        id="vantrue"
+      >
         <div
           class="hover-gallery-card project-intro-card"
-          style="background-image: url('./images/vantrue-image.jpg');"
+          style="background-image: url(&quot;./images/vantrue-image.jpg&quot;)"
         >
           <div class="hover-gallery-card-overlay">
             <h4>Bespoke Shopify Theme</h4>
@@ -142,11 +145,10 @@ type: website
       <div class="project-intro-banner-item project-intro-banner-item-right">
         <h2>BEYOND BASIC THEMES</h2>
         <p>
-          I specialise in Shopify development that goes far beyond simple theme
-          customisations. My my recent work included developemnt that replaced
-          theme defaults crafting storefronts where nearly every section is
-          bespoke, designed and developed from scratch for performance,
-          flexibility, and brand uniqueness.
+          I’m typically brought in when default Shopify themes start limiting
+          growth. My work replaces rigid theme assumptions with modular,
+          performance-led systems that support scale, experimentation, and
+          long-term maintainability.
         </p>
         <!-- <a
           href="#work"
@@ -219,7 +221,7 @@ type: website
       <div class="quick-view-hover-trigger" id="tuplus">
         <article
           class="quick-view-gallery-card"
-          style="background-image: url('./images/tuplus-image.jpg')"
+          style="background-image: url(&quot;./images/tuplus-image.jpg&quot;)"
         >
           <div class="quick-view-gallery-card-overlay">
             <h4>Shopify Theme Development</h4>
@@ -279,7 +281,9 @@ type: website
       <div class="quick-view-hover-trigger" id="pets-purest">
         <article
           class="quick-view-gallery-card"
-          style="background-image: url('./images/pets-purest-image-square.jpg')"
+          style="
+            background-image: url(&quot;./images/pets-purest-image-square.jpg&quot;);
+          "
         >
           <div class="quick-view-gallery-card-overlay">
             <h4>Shopify Theme Development</h4>
@@ -338,7 +342,7 @@ type: website
         <article
           class="quick-view-gallery-card"
           style="
-            background-image: url('./images/fudge-kitchen-image-square.jpg');
+            background-image: url(&quot;./images/fudge-kitchen-image-square.jpg&quot;);
           "
         >
           <div class="quick-view-gallery-card-overlay">
@@ -370,17 +374,15 @@ type: website
           <div class="quick-view-popup-content">
             <h2>Fudge Kitchen Store</h2>
             <p>
-              Worked on Shopify theme enhancements for Fudge Kitchen, a premium
-              dessert brand. This included direct code modifications across
-              Liquid sections, templates, and settings to tailor the store's
-              layout and behaviour.
+              Led theme-level enhancements for a premium Shopify brand,
+              replacing default theme constraints with custom Liquid sections to
+              improve layout flexibility, editorial control, and cross-device
+              performance.
             </p>
             <p>
-              Resolved various theme-level bugs affecting performance and
-              display across devices, ensuring a smooth and user-friendly
-              experience. Leveraged a third-party content management app to
-              control dynamic content blocks within custom sections, improving
-              editorial flexibility for the marketing team.
+              Reduced layout duplication, improved content editing speed,
+              removed dependency on developers for routine updates, and
+              stabilised performance across breakpoints.
             </p>
             <a
               href="https://www.fudgekitchen.co.uk/"
@@ -395,7 +397,9 @@ type: website
       <div class="quick-view-hover-trigger" id="esl">
         <article
           class="quick-view-gallery-card"
-          style="background-image: url('./images/esl-image-square.jpg')"
+          style="
+            background-image: url(&quot;./images/esl-image-square.jpg&quot;);
+          "
         >
           <div class="quick-view-gallery-card-overlay">
             <h4>Shopify Theme Development</h4>
@@ -453,7 +457,7 @@ type: website
         <article
           class="quick-view-gallery-card"
           style="
-            background-image: url('./images/adios-plastic-image-square.jpg');
+            background-image: url(&quot;./images/adios-plastic-image-square.jpg&quot;);
           "
         >
           <div class="quick-view-gallery-card-overlay">
@@ -509,7 +513,7 @@ type: website
       <div class="quick-view-hover-trigger">
         <article
           class="quick-view-gallery-card"
-          style="background-image: url('./images/amerlife-image.jpg')"
+          style="background-image: url(&quot;./images/amerlife-image.jpg&quot;)"
         >
           <div class="quick-view-gallery-card-overlay">
             <h4>Shopify Theme Development</h4>
@@ -565,7 +569,7 @@ type: website
       <div class="quick-view-hover-trigger">
         <article
           class="quick-view-gallery-card"
-          style="background-image: url('./images/ottocast-image.jpg')"
+          style="background-image: url(&quot;./images/ottocast-image.jpg&quot;)"
         >
           <div class="quick-view-gallery-card-overlay">
             <h4>Shopify UX Debugging</h4>
@@ -623,7 +627,7 @@ type: website
       <div class="quick-view-hover-trigger">
         <article
           class="quick-view-gallery-card"
-          style="background-image: url('./images/qidi-image.jpg')"
+          style="background-image: url(&quot;./images/qidi-image.jpg&quot;)"
         >
           <div class="quick-view-gallery-card-overlay">
             <h4>Shopify Theme Development</h4>
@@ -876,7 +880,9 @@ type: website
     <section class="hover-gallery">
       <article
         class="hover-gallery-card"
-        style="background-image: url('./images/nutrigums-image-square.jpg')"
+        style="
+          background-image: url(&quot;./images/nutrigums-image-square.jpg&quot;);
+        "
       >
         <div class="hover-gallery-card-overlay">
           <h4>Shopify Theme Development</h4>
@@ -917,7 +923,9 @@ type: website
       </article>
       <article
         class="hover-gallery-card"
-        style="background-image: url('./images/paper-bag-co-image-square.jpg')"
+        style="
+          background-image: url(&quot;./images/paper-bag-co-image-square.jpg&quot;);
+        "
       >
         <div class="hover-gallery-card-overlay">
           <h4>Shopify Theme Development</h4>
@@ -956,7 +964,9 @@ type: website
       </article>
       <article
         class="hover-gallery-card"
-        style="background-image: url('./images/floor-story-image-square.jpg')"
+        style="
+          background-image: url(&quot;./images/floor-story-image-square.jpg&quot;);
+        "
       >
         <div class="hover-gallery-card-overlay">
           <h4>Shopify Theme Development</h4>
@@ -996,7 +1006,9 @@ type: website
       </article>
       <article
         class="hover-gallery-card"
-        style="background-image: url('./images/sims-wear-image-square.jpg')"
+        style="
+          background-image: url(&quot;./images/sims-wear-image-square.jpg&quot;);
+        "
       >
         <div class="hover-gallery-card-overlay">
           <h4>Shopify Theme Development</h4>
@@ -1035,7 +1047,9 @@ type: website
       </article>
       <article
         class="hover-gallery-card"
-        style="background-image: url('./images/fablight-image-square.jpg')"
+        style="
+          background-image: url(&quot;./images/fablight-image-square.jpg&quot;);
+        "
       >
         <div class="hover-gallery-card-overlay">
           <h4>Shopify Theme Development</h4>
