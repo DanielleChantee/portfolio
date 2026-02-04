@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
       try {
         window.addEventListener("load", () => {
           navigator.serviceWorker
-            .register("/portfolio/service-worker.js")
+            .register("service-worker.js")
             .then((registration) => {
               console.log("Service Worker registered:", registration.scope);
             })

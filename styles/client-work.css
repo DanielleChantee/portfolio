@@ -9,7 +9,8 @@
   text-align: center;
 }
 
-.image-banner .image-banner-content {
+/* Scoped to client-work banner only (Services, About, Work) - prevents index.css override */
+.client-work-image-banner .image-banner-content {
   color: var(--text-black);
   height: 100%;
   width: 100%;
@@ -17,36 +18,47 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.88);
+  padding: 24px 20px;
+  box-sizing: border-box;
   transition: color var(--transition-normal);
 }
-.image-banner h1,
-.content h1 {
+
+.client-work-image-banner h1 {
   font-size: 50px;
   margin-bottom: 10px;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
-.image-banner h2,
-.content h2 {
+.client-work-image-banner h2 {
   font-size: 20px;
   margin-bottom: 10px;
 }
-.image-banner p,
-.content p {
+.client-work-image-banner p {
   font-size: 14px;
   margin-bottom: 40px;
 }
 
-.button-row .btn {
+.client-work-image-banner .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.client-work-image-banner .button-row .btn {
   text-decoration: none;
   background-color: var(--bg-black);
   color: var(--text-white);
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   padding: 10px 20px;
   margin: 5px;
   border-radius: 40px;
   transition: background-color 0.4s, color var(--transition-normal);
 }
-.main-image-banner .button-row .btn:hover {
+.client-work-image-banner .button-row .btn:hover {
   background-color: var(--color-gray-dark);
 }
 

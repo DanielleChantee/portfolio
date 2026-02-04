@@ -16,9 +16,10 @@ header {
 }
 .logo img {
   height: 50px;
-  width: 100px;
-  object-fit: cover;
-  object-position: center;
+  width: auto;
+  max-width: 120px;
+  object-fit: contain;
+  object-position: left center;
 }
 
 nav {
@@ -29,7 +30,7 @@ nav {
 }
 
 .desktop-menu {
-  align-content: center;
+  align-items: center;
   list-style: none;
   display: flex;
   flex-direction: row;

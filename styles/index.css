@@ -50,7 +50,8 @@
 
 .main-image-banner {
   background-image: url("../images/pexels-darina-belonogova-8003994.jpg");
-  height: 550px;
+  height: 520px;
+  min-height: 400px;
   background-size: cover;
   background-position: center;
   display: flex;
@@ -60,7 +61,6 @@
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  padding-top: 60px; /* Adjust for fixed nav */
 }
 
 @media (max-width: 768px) {
@@ -75,41 +75,42 @@
     min-height: 400px;
   }
 
-  .image-banner .image-banner-content {
+  .main-image-banner .image-banner-content {
     padding: 20px 12px;
     min-height: 400px;
     justify-content: flex-start;
     padding-top: 40px;
   }
 
-  .image-banner .image-banner-content h1 {
+  .main-image-banner .image-banner-content h1 {
     margin-bottom: 8px;
   }
 
-  .image-banner .image-banner-content h2 {
+  .main-image-banner .image-banner-content h2 {
     margin-bottom: 12px;
     font-size: 16px;
   }
 
-  .image-banner .image-banner-content p {
+  .main-image-banner .image-banner-content p {
     font-size: 12px;
     margin-bottom: 20px;
     line-height: 1.5;
   }
 
-  .image-banner .image-banner-content .button-row {
+  .main-image-banner .image-banner-content .button-row {
     margin-top: 12px;
     gap: 10px;
   }
 
-  .image-banner .image-banner-content .button-row .btn {
+  .main-image-banner .image-banner-content .button-row .btn {
     max-width: 100%;
     padding: 10px 20px;
     font-size: 14px;
   }
 }
 
-.image-banner .image-banner-content {
+/* Scoped to index hero only - prevents overriding client-work banners on other pages */
+.main-image-banner .image-banner-content {
   color: var(--text-black);
   height: 100%;
   width: 100%;
@@ -117,8 +118,8 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.5);
-  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.88);
+  padding: 32px 24px;
   box-sizing: border-box;
   max-width: 100%;
   transition:
@@ -126,7 +127,16 @@
     background-color var(--transition-normal);
 }
 
-.image-banner .image-banner-content .button-row {
+/* Hero text - center-aligned, readable contrast */
+.main-image-banner .image-banner-content p {
+  text-align: center;
+  max-width: 560px;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+.main-image-banner .image-banner-content .button-row {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -135,22 +145,35 @@
   width: 100%;
 }
 
-.image-banner .image-banner-content .button-row .btn {
+.main-image-banner .image-banner-content .button-row .btn {
   flex: 0 1 auto;
   min-width: 140px;
 }
 
+/* Secondary button: outline style for visual consistency with primary */
+.main-image-banner .button-row .btn-secondary {
+  background: transparent;
+  color: var(--text-black);
+  border: 2px solid var(--text-black);
+}
+
+.main-image-banner .button-row .btn-secondary:hover {
+  background: var(--bg-black);
+  color: var(--text-white);
+  border-color: var(--bg-black);
+}
+
 @media (max-width: 768px) {
-  .image-banner .image-banner-content {
+  .main-image-banner .image-banner-content {
     padding: 20px 16px;
   }
 
-  .image-banner .image-banner-content p {
+  .main-image-banner .image-banner-content p {
     font-size: 13px;
     margin-bottom: 24px;
   }
 
-  .image-banner .image-banner-content .button-row {
+  .main-image-banner .image-banner-content .button-row {
     flex-direction: column;
     align-items: center;
     gap: 12px;
@@ -158,7 +181,7 @@
     width: 100%;
   }
 
-  .image-banner .image-banner-content .button-row .btn {
+  .main-image-banner .image-banner-content .button-row .btn {
     width: 100%;
     max-width: 280px;
     margin: 0;
@@ -171,60 +194,75 @@
     min-height: 400px;
   }
 
-  .image-banner .image-banner-content {
+  .main-image-banner .image-banner-content {
     padding: 20px 12px;
     min-height: 400px;
     justify-content: flex-start;
     padding-top: 40px;
   }
 
-  .image-banner .image-banner-content h1 {
+  .main-image-banner .image-banner-content h1 {
     margin-bottom: 8px;
     font-size: 36px;
   }
 
-  .image-banner .image-banner-content h2 {
+  .main-image-banner .image-banner-content h2 {
     margin-bottom: 12px;
     font-size: 16px;
   }
 
-  .image-banner .image-banner-content p {
+  .main-image-banner .image-banner-content p {
     font-size: 12px;
     margin-bottom: 20px;
     line-height: 1.5;
   }
 
-  .image-banner .image-banner-content .button-row {
+  .main-image-banner .image-banner-content .button-row {
     margin-top: 12px;
     gap: 10px;
   }
 
-  .image-banner .image-banner-content .button-row .btn {
+  .main-image-banner .image-banner-content .button-row .btn {
     max-width: 100%;
     padding: 10px 20px;
     font-size: 14px;
   }
 
-  .image-banner p {
+  .main-image-banner p {
     margin-bottom: 20px;
   }
 }
-.image-banner h1,
-.content h1 {
+
+/* Index hero typography - .content shared with clients section */
+.main-image-banner h1,
+.main-image-banner h2 {
+  text-align: center;
+}
+.clients .content h1 {
   font-size: 50px;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   text-align: center;
 }
-.image-banner h2,
-.content h2 {
+.clients .content h2 {
   font-size: 20px;
-  margin-bottom: 10px;
+  margin-bottom: 16px;
   text-align: center;
 }
-.image-banner p,
-.content p {
-  font-size: 14px;
-  margin-bottom: 40px;
+
+.clients .button-row {
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .clients .button-row {
+    align-items: center;
+  }
+}
+.main-image-banner p,
+.clients .content p {
+  font-size: 16px;
+  line-height: 1.65;
+  margin-bottom: 24px;
 }
 
 @media (max-width: 480px) {
@@ -292,7 +330,7 @@ img[loading="lazy"] {
   white-space: nowrap;
   background-color: var(--bg-black);
   box-sizing: border-box;
-  padding: 50px 0;
+  padding: 50px 24px;
   transition: background-color var(--transition-normal);
 }
 
@@ -304,7 +342,10 @@ img[loading="lazy"] {
 .client-logo-images img {
   width: 100px;
   height: 100px;
+  min-width: 100px;
+  min-height: 100px;
   margin-right: 100px;
+  object-fit: contain;
   transition: transform 0.3s ease;
 }
 
@@ -572,7 +613,12 @@ img[loading="lazy"] {
 }
 
 .services .content {
-  margin: auto;
+  margin: 0 auto;
+}
+
+.services .content h1,
+.services .content h2 {
+  text-align: center;
 }
 
 #services-marquee {
@@ -582,13 +628,15 @@ img[loading="lazy"] {
   border: solid;
   border-color: var(--text-black);
   font-family: "Poppins", sans-serif;
-  font-size: 50px;
+  font-size: clamp(20px, 3.5vw, 40px);
   color: var(--text-black);
   white-space: nowrap;
   position: relative;
   height: 100px;
   display: flex;
   align-items: center;
+  padding: 0 48px;
+  box-sizing: border-box;
   transition:
     background-color var(--transition-normal),
     color var(--transition-normal),
@@ -648,8 +696,8 @@ img[loading="lazy"] {
   color: var(--text-white);
   text-align: center;
   line-height: 1.6;
-  max-width: 300px;
-  margin: 0 auto;
+  max-width: 100%;
+  margin: 0;
   font-size: 14px;
   transition: color var(--transition-normal);
 }

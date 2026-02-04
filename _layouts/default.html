@@ -29,7 +29,12 @@
       {% if page.image contains "http" %}
         {% assign og_image = page.image %}
       {% else %}
-        {% assign og_image = base_url | append: page.image %}
+        {% assign img_path = page.image %}
+        {% assign first_char = page.image | slice: 0, 1 %}
+        {% if first_char != "/" %}
+          {% assign img_path = "/" | append: page.image %}
+        {% endif %}
+        {% assign og_image = base_url | append: img_path %}
       {% endif %}
     {% else %}
       {% assign og_image = base_url | append: "/images/profile-picture.jpeg" %}
@@ -59,13 +64,14 @@
     <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
     <meta name="theme-color" content="#000000">
     <title>{{ page.title }}</title>
-    <!-- CSS Variables - must load first (other styles depend on them) -->
+    <!-- CSS Variables - must load first -->
     <link rel="stylesheet" href="{{ "/styles/variables.css" | relative_url }}">
-    {% include styles.html %}
-    <!-- CSS -->
+    <!-- Base styles (buttons, content-section, etc.) -->
     <link rel="stylesheet" href="{{ "/styles/style.css" | relative_url }}">
     <link rel="stylesheet" href="{{ "/styles/header.css" | relative_url }}">
     <link rel="stylesheet" href="{{ "/styles/footer.css" | relative_url }}">
+    <!-- Page-specific styles last so they can override base -->
+    {% include styles.html %}
     <!-- SPLIDE -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
     <!-- AOS - Animate On Scroll -->

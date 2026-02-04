@@ -1,18 +1,29 @@
+/* Form wrapper - centers form on page */
+.contact-form-wrapper {
+  display: flex;
+  justify-content: center;
+  padding: 32px 24px 60px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
 form {
   background: var(--bg-white);
-  padding: 20px;
+  padding: 32px;
   border-radius: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  margin: auto;
-  max-width: 700px;
-  text-align: center;
+  align-items: stretch;
+  margin: 0 auto;
+  max-width: 560px;
+  width: 100%;
   transition: background-color var(--transition-normal);
+  box-sizing: border-box;
 }
 
 .form-group {
   margin-bottom: 20px;
+  width: 100%;
   text-align: left;
 }
 
@@ -22,10 +33,11 @@ label {
   font-weight: 500;
   color: var(--text-gray);
   transition: color var(--transition-normal);
+  text-align: left;
 }
 
-input,
-textarea {
+.form-group input,
+.form-group textarea {
   width: 100%;
   padding: 12px;
   margin: 8px 0 4px 0;
@@ -113,7 +125,7 @@ textarea.error {
   display: none;
 }
 
-button {
+.contact-form-wrapper button {
   text-decoration: none;
   background-color: var(--bg-black);
   color: var(--text-white);
@@ -121,13 +133,15 @@ button {
   align-items: center;
   justify-content: center;
   gap: 8px;
-  margin: 5px auto;
+  margin: 5px 0;
   border-radius: 40px;
   transition: background-color 0.4s, opacity 0.3s ease, color var(--transition-normal);
   cursor: pointer;
   border: none;
-  width: max-content;
+  width: 100%;
+  max-width: 200px;
   min-width: 120px;
+  align-self: center;
 }
 
 button:hover:not(:disabled) {
@@ -157,16 +171,22 @@ button:disabled {
   display: inline-block;
 }
 
-form .btn {
+.contact-form-wrapper form .btn {
   padding: 10px 40px;
-  margin: 5px auto;
+  margin: 5px 0;
 }
 
 /* ------- */
 .contact.content-section {
   background-color: var(--bg-white);
-  min-height: 100px;
+  padding: 32px 24px 24px;
   transition: background-color var(--transition-normal);
+}
+
+.contact.content-section .content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .contact.content-section .content {
@@ -174,13 +194,10 @@ form .btn {
   transition: color var(--transition-normal);
 }
 
-.contact.content-section h2 {
-  margin-left: 10px;
-  margin-right: 10px;
-}
 .contact.content-section h2,
 .contact-options h2 {
   font-size: 28px;
+  text-align: center;
 }
 
 .contact.content-section .button-row .btn {
@@ -191,20 +208,28 @@ form .btn {
 /* ---------- */
 /* Contact Options */
 .contact-options {
-  min-height: 300px;
+  min-height: 240px;
   background-color: var(--bg-black);
-  padding: 40px 20px;
+  padding: 48px 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .contact-options .content {
   color: var(--text-white);
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto;
+  width: 100%;
 }
 
 .contact-options .content h2 {
   color: var(--text-white);
+  text-align: center;
 }
 .contact-options h2 {
-  margin-bottom: 40px;
+  margin-bottom: 24px;
 }
 
 .contact-options a {
