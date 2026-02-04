@@ -192,6 +192,16 @@ form .btn {
 /* Contact Options */
 .contact-options {
   min-height: 300px;
+  background-color: var(--bg-black);
+  padding: 40px 20px;
+}
+
+.contact-options .content {
+  color: var(--text-white);
+}
+
+.contact-options .content h2 {
+  color: var(--text-white);
 }
 .contact-options h2 {
   margin-bottom: 40px;

@@ -53,22 +53,23 @@
 
     <link
       rel="shortcut icon"
-      href="./images/logos/logo-white-small.jpg"
+      href="{{ '/images/logos/logo-white-small.jpg' | relative_url }}"
       type="image/x-icon"
     />
     <link rel="manifest" href="{{ "/manifest.json" | relative_url }}">
     <meta name="theme-color" content="#000000">
     <title>{{ page.title }}</title>
-    <!-- Placeholder for external CSS links -->
-    {% include styles.html %}
-    <!-- CSS Variables -->
+    <!-- CSS Variables - must load first (other styles depend on them) -->
     <link rel="stylesheet" href="{{ "/styles/variables.css" | relative_url }}">
+    {% include styles.html %}
     <!-- CSS -->
     <link rel="stylesheet" href="{{ "/styles/style.css" | relative_url }}">
     <link rel="stylesheet" href="{{ "/styles/header.css" | relative_url }}">
     <link rel="stylesheet" href="{{ "/styles/footer.css" | relative_url }}">
     <!-- SPLIDE -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!-- AOS - Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </head>
   <body>
     <!-- Skip Navigation Link -->
@@ -83,6 +84,42 @@
     {% include footer.html %}
 
     <!-- Scripts -->
-    <script src="./scripts/scripts.js"></script>
-  </body>
-</html>
+    <script src="{{ '/scripts/scripts.js' | relative_url }}"></script>
+    <script>
+      // Initialize AOS (Animate On Scroll)
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+
+      // Initialize Carousels on Page Load
+      document.addEventListener('DOMContentLoaded', function() {
+        const carousels = document.querySelectorAll('.carousel');
+        carousels.forEach(carousel => {
+          const slides = carousel.querySelectorAll('.slide');
+          const prevBtn = carousel.querySelector('.prev');
+          const nextBtn = carousel.querySelector('.next');
+          let currentIndex = 0;
+
+          const showSlide = (index) => {
+            slides.forEach((slide, i) => {
+              slide.classList.toggle('active', i === index);
+            });
+          };
+
+          if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+              showSlide(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex + 1) % slides.length;
+              showSlide(currentIndex);
+            });
+
+            showSlide(currentIndex);
+          }
+        });
+      });
+    </script>

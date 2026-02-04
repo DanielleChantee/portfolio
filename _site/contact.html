@@ -39,13 +39,14 @@
 
     <link
       rel="shortcut icon"
-      href="./images/logos/logo-white-small.jpg"
+      href="/portfolio/images/logos/logo-white-small.jpg"
       type="image/x-icon"
     />
     <link rel="manifest" href="/portfolio/manifest.json">
     <meta name="theme-color" content="#000000">
     <title>Hire a Shopify Developer | Store Setup, Themes & Ecommerce Solutions</title>
-    <!-- Placeholder for external CSS links -->
+    <!-- CSS Variables - must load first (other styles depend on them) -->
+    <link rel="stylesheet" href="/portfolio/styles/variables.css">
     <!-- Google Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -78,15 +79,21 @@
   rel="stylesheet"
   href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
 />
-
-    <!-- CSS Variables -->
-    <link rel="stylesheet" href="/portfolio/styles/variables.css">
+<!-- Page-specific Styles -->
+<link rel="stylesheet" href="/portfolio/styles/client-work.css">
+<link rel="stylesheet" href="/portfolio/styles/work.css">
+<link rel="stylesheet" href="/portfolio/styles/about.css">
+<link rel="stylesheet" href="/portfolio/styles/index.css">
+<link rel="stylesheet" href="/portfolio/styles/contact.css">
+<link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css" />
     <!-- CSS -->
     <link rel="stylesheet" href="/portfolio/styles/style.css">
     <link rel="stylesheet" href="/portfolio/styles/header.css">
     <link rel="stylesheet" href="/portfolio/styles/footer.css">
     <!-- SPLIDE -->
     <script src="https://cdn.jsdelivr.net/npm/@splidejs/splide@4.1.4/dist/js/splide.min.js"></script>
+    <!-- AOS - Animate On Scroll -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   </head>
   <body>
     <!-- Skip Navigation Link -->
@@ -112,45 +119,86 @@
 </header> -->
 <header>
   <nav role="navigation" aria-label="Main navigation">
-    <a href="index.html" aria-label="Home - Danielle Portfolio">
+    <a href="/portfolio/" aria-label="Home - Danielle Portfolio">
       <div class="logo">
-        <img src="./images/logos/logo-black.jpg" alt="Danielle portfolio logo" />
+        <img
+          src="/portfolio/images/logos/logo-black.jpg"
+          alt="Danielle portfolio logo"
+        />
       </div>
     </a>
     <!-- Desktop Menu -->
     <ul class="desktop-menu" role="menubar">
-      <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-      <li role="none"><a href="about.html" role="menuitem">About</a></li>
-      <!-- <li><a href="client-work.html">Client Work</a></li> -->
+      <li role="none"><a href="/portfolio/" role="menuitem">Home</a></li>
+      <li role="none"><a href="/portfolio/services.html" role="menuitem">Services</a></li>
+      <li role="none"><a href="/portfolio/about.html" role="menuitem">About</a></li>
       <li class="has-mega-menu" role="none">
-        <a href="work.html" role="menuitem" aria-haspopup="true" aria-expanded="false">Work</a>
+        <a
+          href="/portfolio/work.html"
+          role="menuitem"
+          aria-haspopup="true"
+          aria-expanded="false"
+          >Work</a
+        >
         <div class="mega-menu" role="menu" aria-label="Work submenu">
           <div class="mega-menu-content">
             <div class="mega-menu-column">
               <h3>Featured Projects</h3>
               <ul role="list">
                 <li role="none">
-                  <a href="work.html#vantrue" class="mega-menu-item" role="menuitem">
-                    <img src="./images/vantrue-image.jpg" alt="Vantrue project" class="mega-menu-thumbnail" />
-                    <span>Vantrue</span>
+                  <a
+                    href="/portfolio/work.html#fudge"
+                    class="mega-menu-item"
+                    role="menuitem"
+                  >
+                    <img
+                      src="/portfolio/images/fudge-kitchen-image-square.jpg"
+                      alt="Vantrue project"
+                      class="mega-menu-thumbnail"
+                    />
+                    <span>Fudge Kitchen</span>
                   </a>
                 </li>
                 <li role="none">
-                  <a href="work.html#tuplus" class="mega-menu-item" role="menuitem">
-                    <img src="./images/tuplus-image.jpg" alt="Tuplus project" class="mega-menu-thumbnail" />
-                    <span>Tuplus</span>
+                  <a
+                    href="/portfolio/work.html#esl"
+                    class="mega-menu-item"
+                    role="menuitem"
+                  >
+                    <img
+                      src="/portfolio/images/tuplus-image.jpg"
+                      alt="Tuplus project"
+                      class="mega-menu-thumbnail"
+                    />
+                    <span>ESL</span>
                   </a>
                 </li>
                 <li role="none">
-                  <a href="work.html#pets-purest" class="mega-menu-item" role="menuitem">
-                    <img src="./images/pets-purest-image-square.jpg" alt="Pets Purest project" class="mega-menu-thumbnail" />
+                  <a
+                    href="/portfolio/work.html#pets"
+                    class="mega-menu-item"
+                    role="menuitem"
+                  >
+                    <img
+                      src="/portfolio/images/pets-purest-image-square.jpg"
+                      alt="Pets Purest project"
+                      class="mega-menu-thumbnail"
+                    />
                     <span>Pets Purest</span>
                   </a>
                 </li>
                 <li role="none">
-                  <a href="work.html#esl" class="mega-menu-item" role="menuitem">
-                    <img src="./images/esl-image-square.jpg" alt="ESL Shop project" class="mega-menu-thumbnail" />
-                    <span>ESL Shop</span>
+                  <a
+                    href="/portfolio/work.html#adios"
+                    class="mega-menu-item"
+                    role="menuitem"
+                  >
+                    <img
+                      src="/portfolio/images/esl-image-square.jpg"
+                      alt="ESL Shop project"
+                      class="mega-menu-thumbnail"
+                    />
+                    <span>Adios Plastic</span>
                   </a>
                 </li>
               </ul>
@@ -158,25 +206,49 @@
             <div class="mega-menu-column">
               <h3>Project Types</h3>
               <ul role="list">
-                <li role="none"><a href="work.html" role="menuitem">All Work</a></li>
-                <li role="none"><a href="work.html#theme-development" role="menuitem">Theme Development</a></li>
-                <li role="none"><a href="work.html#ux-debugging" role="menuitem">UX Debugging</a></li>
-                <li role="none"><a href="work.html#custom-sections" role="menuitem">Custom Sections</a></li>
+                <li role="none">
+                  <a href="/portfolio/work.html" role="menuitem">All Work</a>
+                </li>
+                <li role="none">
+                  <a href="/portfolio/work.html#theme-development" role="menuitem"
+                    >Theme Development</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/portfolio/work.html#ux-debugging" role="menuitem"
+                    >UX Debugging</a
+                  >
+                </li>
+                <li role="none">
+                  <a href="/portfolio/work.html#custom-sections" role="menuitem"
+                    >Custom Sections</a
+                  >
+                </li>
               </ul>
             </div>
             <div class="mega-menu-column">
               <h3>View All</h3>
               <ul role="list">
-                <li role="none"><a href="work.html" class="mega-menu-cta" role="menuitem">Browse Portfolio</a></li>
+                <li role="none">
+                  <a href="/portfolio/work.html" class="mega-menu-cta" role="menuitem"
+                    >Browse Portfolio</a
+                  >
+                </li>
               </ul>
             </div>
           </div>
         </div>
       </li>
-      <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+      <li role="none"><a href="/portfolio/rates.html" role="menuitem">Rates</a></li>
+      <li role="none"><a href="/portfolio/contact.html" role="menuitem">Contact</a></li>
     </ul>
     <!-- Hamburger Menu Button -->
-    <button class="hamburger" aria-label="Open mobile menu" aria-expanded="false" aria-controls="mobile-menu">
+    <button
+      class="hamburger"
+      aria-label="Open mobile menu"
+      aria-expanded="false"
+      aria-controls="mobile-menu"
+    >
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
       <span aria-hidden="true"></span>
@@ -184,160 +256,132 @@
     <!-- Mobile Menu Backdrop -->
     <div class="mobile-menu-backdrop" aria-hidden="true"></div>
     <!-- Mobile Menu Wrapper -->
-    <div class="mobile-menu-wrapper" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
+    <div
+      class="mobile-menu-wrapper"
+      id="mobile-menu"
+      role="navigation"
+      aria-label="Mobile navigation"
+    >
       <div class="menu-header">
         <button class="close" aria-label="Close menu">&times;</button>
       </div>
       <ul class="mobile-menu" role="menubar">
-        <li role="none"><a href="index.html" role="menuitem">Home</a></li>
-        <li role="none"><a href="about.html" role="menuitem">About</a></li>
-        <li role="none"><a href="work.html" role="menuitem">Work</a></li>
-        <li role="none"><a href="contact.html" role="menuitem">Contact</a></li>
+        <li role="none"><a href="/portfolio/" role="menuitem">Home</a></li>
+        <li role="none"><a href="/portfolio/services.html" role="menuitem">Services</a></li>
+        <li role="none"><a href="/portfolio/about.html" role="menuitem">About</a></li>
+        <li role="none"><a href="/portfolio/work.html" role="menuitem">Work</a></li>
+        <li role="none"><a href="/portfolio/rates.html" role="menuitem">Rates</a></li>
+        <li role="none"><a href="/portfolio/contact.html" role="menuitem">Contact</a></li>
       </ul>
     </div>
   </nav>
 </header>
 
 
-    <main id="main-content"><!doctype html>
-<html lang="en">
-  <head>
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ContactPage",
-        "name": "Contact - Danielle Adeyemo",
-        "url": "https://daniellechantee.github.io/portfolio/contact",
-        "description": "Get in touch with Danielle Adeyemo for Shopify development and web design services.",
-        "contactPoint": {
-          "@type": "ContactPoint",
-          "email": "daniellechantee@gmail.com",
-          "contactType": "Customer Service",
-          "areaServed": "UK",
-          "availableLanguage": ["English"]
-        }
-      }
-    </script>
+    <main id="main-content"><!-- IMAGE BANNER -->
+<div class="client-work-image-banner image-banner">
+  <div class="image-banner-content">
+    <h1 class="animate__animated animate__bounce">Contact</h1>
+    <div class="button-row"></div>
+  </div>
+</div>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="./styles/client-work.css" />
-    <link rel="stylesheet" href="./styles/contact.css" />
-  </head>
-  <body>
-    <!-- IMAGE BANNER -->
-    <div class="client-work-image-banner image-banner">
-      <div class="image-banner-content">
-        <h1 class="animate__animated animate__bounce">Contact</h1>
-        <div class="button-row"></div>
-      </div>
-    </div>
+<div class="contact-options content-section">
+  <div class="content">
+    <h2>Ways To Get In Touch</h2>
+    <a href="https://www.linkedin.com/in/danielleadeyemo/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    <a href="mailto:daniellechantee@gmail.com" target="_blank">DanielleChantee@gmail.com</a>
+  </div>
+</div>
 
-    <!-- CONTACT OPTIONS -->
-    <div class="contact-options content-section">
-      <!-- CONTENT -->
-      <div class="content">
-        <h2>Ways To Get In Touch</h2>
-        <a href="https://www.linkedin.com/in/danielleadeyemo/" target="_blank"
-          >LinkedIn</a
-        >
-        <a href="mailto:daniellechantee@gmail.com" target="_blank"
-          >DanielleChantee@gmail.com</a
-        >
-      </div>
-    </div>
+<div class="contact content-section">
+  <div class="content">
+    <p>
+      Available for contract and consultancy work with product teams,
+      agencies, and growth-stage brands.
+    </p>
+    <h2>Or Get In Touch Through This Form</h2>
+  </div>
+</div>
 
-    <div class="contact content-section">
-      <div class="content">
-        <p>
-          Available for contract and consultancy work with product teams,
-          agencies, and growth-stage brands.
-        </p>
-        <h2>Or Get In Touch Through This Form</h2>
-      </div>
-    </div>
-    <!-- CONTACT FORM -->
-    <form
-      action="https://formspree.io/f/mgveyylg"
-      method="POST"
-      aria-label="Contact form"
-      id="contact-form"
-      novalidate
-    >
-      <div
-        id="form-messages"
-        role="alert"
-        aria-live="polite"
-        aria-atomic="true"
-      ></div>
+<form
+  action="https://formspree.io/f/mgveyylg"
+  method="POST"
+  aria-label="Contact form"
+  id="contact-form"
+  novalidate
+>
+  <div
+    id="form-messages"
+    role="alert"
+    aria-live="polite"
+    aria-atomic="true"
+  ></div>
 
-      <div class="form-group">
-        <label for="email">
-          Email:
-          <input
-            type="email"
-            name="email"
-            id="email"
-            required
-            aria-required="true"
-            aria-invalid="false"
-            aria-describedby="email-error"
-            autocomplete="email"
-          />
-        </label>
-        <span
-          id="email-error"
-          class="error-message"
-          role="alert"
-          aria-live="polite"
-        ></span>
-      </div>
+  <div class="form-group">
+    <label for="email">
+      Email:
+      <input
+        type="email"
+        name="email"
+        id="email"
+        required
+        aria-required="true"
+        aria-invalid="false"
+        aria-describedby="email-error"
+        autocomplete="email"
+      />
+    </label>
+    <span
+      id="email-error"
+      class="error-message"
+      role="alert"
+      aria-live="polite"
+    ></span>
+  </div>
 
-      <div class="form-group">
-        <label for="message">
-          Message:
-          <textarea
-            name="message"
-            id="message"
-            required
-            aria-required="true"
-            aria-invalid="false"
-            aria-describedby="message-error"
-            rows="5"
-          ></textarea>
-        </label>
-        <span
-          id="message-error"
-          class="error-message"
-          role="alert"
-          aria-live="polite"
-        ></span>
-      </div>
+  <div class="form-group">
+    <label for="message">
+      Message:
+      <textarea
+        name="message"
+        id="message"
+        required
+        aria-required="true"
+        aria-invalid="false"
+        aria-describedby="message-error"
+        rows="5"
+      ></textarea>
+    </label>
+    <span
+      id="message-error"
+      class="error-message"
+      role="alert"
+      aria-live="polite"
+    ></span>
+  </div>
 
-      <button
-        class="btn glow-black"
-        type="submit"
-        aria-label="Send contact form"
-        id="submit-btn"
-      >
-        <span class="button-text">Send</span>
-        <span class="button-loader" aria-hidden="true" style="display: none"
-          >Sending...</span
-        >
-      </button>
-    </form>
-  </body>
-</html>
+  <button
+    class="btn glow-black"
+    type="submit"
+    aria-label="Send contact form"
+    id="submit-btn"
+  >
+    <span class="button-text">Send</span>
+    <span class="button-loader" aria-hidden="true" style="display: none">Sending...</span>
+  </button>
+</form>
 </main>
 
     <!-- Footer -->
     <footer>
   <div class="footer-contact">
     <a href="mailto:daniellechantee@gmail.com" target="_blank">
-      <img src="./images/mail.svg" class="email-footer" alt="email"
+      <img src="/portfolio/images/mail.svg" class="email-footer" alt="email"
     /></a>
     <a href="https://www.linkedin.com/in/danielleadeyemo/" target="_blank">
       <img
-        src="./images/logos/linkedin-logo.png"
+        src="/portfolio/images/logos/linkedin-logo.png"
         class="linkedin-logo"
         alt="LinkedIn logo"
       />
@@ -348,6 +392,42 @@
 
 
     <!-- Scripts -->
-    <script src="./scripts/scripts.js"></script>
-  </body>
-</html>
+    <script src="/portfolio/scripts/scripts.js"></script>
+    <script>
+      // Initialize AOS (Animate On Scroll)
+      AOS.init({
+        duration: 800,
+        once: true
+      });
+
+      // Initialize Carousels on Page Load
+      document.addEventListener('DOMContentLoaded', function() {
+        const carousels = document.querySelectorAll('.carousel');
+        carousels.forEach(carousel => {
+          const slides = carousel.querySelectorAll('.slide');
+          const prevBtn = carousel.querySelector('.prev');
+          const nextBtn = carousel.querySelector('.next');
+          let currentIndex = 0;
+
+          const showSlide = (index) => {
+            slides.forEach((slide, i) => {
+              slide.classList.toggle('active', i === index);
+            });
+          };
+
+          if (prevBtn && nextBtn) {
+            prevBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+              showSlide(currentIndex);
+            });
+
+            nextBtn.addEventListener('click', () => {
+              currentIndex = (currentIndex + 1) % slides.length;
+              showSlide(currentIndex);
+            });
+
+            showSlide(currentIndex);
+          }
+        });
+      });
+    </script>

@@ -7,217 +7,131 @@ image: /images/vantrue-image.jpg
 type: website
 ---
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gallery</title>
+<!-- IMAGE BANNER -->
+<div class="client-work-image-banner image-banner">
+  <div class="image-banner-content">
+    <h1 class="animate__animated animate__bounce">Work</h1>
+    <h2>Commerce systems built for scale</h2>
+    <div class="button-row">
+      <a href="{{ '/contact.html' | relative_url }}" class="btn">Get a Quote</a>
+    </div>
+  </div>
+</div>
 
-    <!-- Structured Data for Projects -->
-    <script type="application/ld+json">
-      {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "itemListElement": [
-          {
-            "@type": "CreativeWork",
-            "name": "Vantrue - Bespoke Shopify Theme",
-            "description": "Bespoke Shopify theme for a premium electronics brand, developed primarily from custom-coded sections built from scratch to meet high design and performance standards.",
-            "creator": {
-              "@type": "Person",
-              "name": "Danielle Adeyemo"
-            },
-            "about": {
-              "@type": "Thing",
-              "name": "Shopify Theme Development"
-            },
-            "keywords": "Shopify, Theme Development, Custom Sections, E-commerce, Frontend Development"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Tuplus Store - Custom Shopify Theme",
-            "description": "Fully custom Shopify theme for Tuplus, built with advanced sections and mobile-first design. Includes bespoke product page layouts, filtering systems, and 3D model integration.",
-            "creator": {
-              "@type": "Person",
-              "name": "Danielle Adeyemo"
-            },
-            "url": "https://tuplus.com",
-            "about": {
-              "@type": "Thing",
-              "name": "Shopify Theme Development"
-            },
-            "keywords": "Shopify, Custom Theme, Liquid Sections, E-commerce, Frontend Development"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "Pets Purest Store - Shopify 2.0 Theme",
-            "description": "Customised Shopify 2.0 theme for Pets Purest, built with custom features and responsive layouts. Includes third-party app integrations and responsive experiences.",
-            "creator": {
-              "@type": "Person",
-              "name": "Danielle Adeyemo"
-            },
-            "url": "https://www.petspurest.com/",
-            "about": {
-              "@type": "Thing",
-              "name": "Shopify Theme Development"
-            },
-            "keywords": "Shopify 2.0, Theme Customisation, E-commerce, Frontend Development"
-          },
-          {
-            "@type": "CreativeWork",
-            "name": "ESL Shop Store - Shopify Theme Enhancements",
-            "description": "Custom Shopify enhancements for ESL's official store, with app integrations and responsive design. Includes theme modifications and front-end enhancements for esports merchandise.",
-            "creator": {
-              "@type": "Person",
-              "name": "Danielle Adeyemo"
-            },
-            "url": "https://shop.esl.com/",
-            "about": {
-              "@type": "Thing",
-              "name": "Shopify Theme Development"
-            },
-            "keywords": "Shopify, Theme Enhancement, E-commerce, Frontend Development"
-          }
-        ]
-      }
-    </script>
+<!-- CIRCLE NAV -->
+<div class="circle-nav" data-aos="fade-in">
+  <a href="#fudge" class="nav-item"><img src="{{ '/images/fudge-kitchen-image-square.jpg' | relative_url }}" alt="Fudge Kitchen"></a>
+  <a href="#esl" class="nav-item"><img src="{{ '/images/esl-image-square.jpg' | relative_url }}" alt="ESL"></a>
+  <a href="#pets" class="nav-item"><img src="{{ '/images/pets-purest-image-square.jpg' | relative_url }}" alt="Pets Purest"></a>
+  <a href="#bottle" class="nav-item"><img src="{{ '/images/bottle-brush-ferments-image-square.jpg' | relative_url }}" alt="Bottlebrush Ferments"></a>
+  <a href="#adios" class="nav-item"><img src="{{ '/images/adios-plastic-image-square.jpg' | relative_url }}" alt="Adios Plastic"></a>
+</div>
 
-    <link rel="stylesheet" href="./styles/client-work.css" />
-    <link rel="stylesheet" href="./styles/work.css" />
-  </head>
-  <body>
-    <!-- IMAGE BANNER -->
-    <div class="client-work-image-banner image-banner">
-      <div class="image-banner-content">
-        <h1 class="animate__animated animate__bounce">Work</h1>
-        <h2>Commerce systems built for scale</h2>
-        <div class="button-row"></div>
+<!-- PROJECT SECTIONS -->
+    <section id="fudge" class="project-section" data-aos="fade-up">
+      <h2>Fudge Kitchen</h2>
+      <div class="carousel">
+        <div class="slide image-slide active">
+          <img src="{{ '/images/fudge-kitchen-image-square.jpg' | relative_url }}" alt="Fudge Kitchen">
+        </div>
+        <div class="slide text-slide">
+          <div class="text-content">
+            <h3>Shopify Theme Enhancements</h3>
+            <p>Custom Shopify modifications and bug fixes for a premium dessert brand with app-integrated content.</p>
+            <a href="{{ '/projects/fudge-kitchen.html' | relative_url }}" class="btn">View Case Study</a>
+          </div>
+        </div>
+        <button class="carousel-btn prev">←</button>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </section>
+
+    <section id="esl" class="project-section" data-aos="fade-up">
+      <h2>ESL</h2>
+      <div class="carousel">
+        <div class="slide image-slide active">
+          <img src="{{ '/images/esl-image-square.jpg' | relative_url }}" alt="ESL">
+        </div>
+        <div class="slide text-slide">
+          <div class="text-content">
+            <h3>Shopify Theme Enhancements</h3>
+            <p>Custom Shopify enhancements for ESL's official esports store, with app integrations and responsive design.</p>
+            <a href="{{ '/projects/esl.html' | relative_url }}" class="btn">View Case Study</a>
+          </div>
+        </div>
+        <button class="carousel-btn prev">←</button>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </section>
+
+    <section id="pets" class="project-section" data-aos="fade-up">
+      <h2>Pets Purest</h2>
+      <div class="carousel">
+        <div class="slide image-slide active">
+          <img src="{{ '/images/pets-purest-image-square.jpg' | relative_url }}" alt="Pets Purest">
+        </div>
+        <div class="slide text-slide">
+          <div class="text-content">
+            <h3>Shopify Theme Customisation</h3>
+            <p>Adapted a Shopify 2.0 theme for a natural pet care brand, with custom features and responsive layouts.</p>
+            <a href="{{ '/projects/pets-purest.html' | relative_url }}" class="btn">View Case Study</a>
+          </div>
+        </div>
+        <button class="carousel-btn prev">←</button>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </section>
+
+    <section id="bottle" class="project-section" data-aos="fade-up">
+      <h2>Bottlebrush Ferments</h2>
+      <div class="carousel">
+        <div class="slide image-slide active">
+          <img src="{{ '/images/bottle-brush-ferments-image-square.jpg' | relative_url }}" alt="Bottlebrush Ferments">
+        </div>
+        <div class="slide text-slide">
+          <div class="text-content">
+            <h3>Shopify Theme Development</h3>
+            <p>Custom Shopify development for a fermented foods brand.</p>
+            <a href="{{ '/projects/bottlebrush-ferments.html' | relative_url }}" class="btn">View Project</a>
+          </div>
+        </div>
+        <button class="carousel-btn prev">←</button>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </section>
+
+    <section id="adios" class="project-section" data-aos="fade-up">
+      <h2>Adios Plastic</h2>
+      <div class="carousel">
+        <div class="slide image-slide active">
+          <img src="{{ '/images/adios-plastic-image-square.jpg' | relative_url }}" alt="Adios Plastic">
+        </div>
+        <div class="slide text-slide">
+          <div class="text-content">
+            <h3>Shopify Theme Development</h3>
+            <p>Custom Shopify design and development for a sustainable pet care brand.</p>
+            <a href="{{ '/projects/adios-plastic.html' | relative_url }}" class="btn">View Project</a>
+          </div>
+        </div>
+        <button class="carousel-btn prev">←</button>
+        <button class="carousel-btn next">→</button>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <div class="about content-section cta-section work-cta">
+      <div class="content">
+        <h2>Ready to build your store?</h2>
+        <p>Available for contract and consultancy work with product teams, agencies, and growth-stage brands.</p>
+        <div class="button-row">
+          <a href="{{ '/contact.html' | relative_url }}" class="btn btn-primary glow-black">Get a Quote</a>
+          <a href="{{ '/services.html' | relative_url }}" class="btn btn-secondary glow-black">View Services</a>
+        </div>
       </div>
     </div>
 
-    <section class="project-intro-banner">
-      <div
-        class="project-intro-banner-item project-intro-banner-item-left"
-        id="vantrue"
-      >
-        <div
-          class="hover-gallery-card project-intro-card"
-          style="background-image: url(&quot;./images/vantrue-image.jpg&quot;)"
-        >
-          <div class="hover-gallery-card-overlay">
-            <h4>Bespoke Shopify Theme</h4>
-            <h2>Vantrue</h2>
-            <p>
-              Bespoke Shopify theme for a premium electronics brand, developed
-              primarily from custom-coded sections built from scratch to meet
-              high design and performance standards.
-            </p>
-          </div>
-          <div class="hover-gallery-card-hover">
-            <div>
-              <p>
-                Led the development of a highly bespoke Shopify theme for
-                Vantrue, extending beyond basic theme architecture with numerous
-                custom sections developed entirely from scratch. The build
-                emphasised performance, pixel-perfect design implementation, and
-                modular flexibility. Key features included advanced layout
-                structures and a polished, mobile-first UI.
-              </p>
-              <a class="hover-view-btn">Coming soon</a>
-            </div>
-          </div>
-          <div class="hover-gallery-card-footer">
-            <div class="hover-meta">
-              <img
-                class="thumbnail-icon"
-                src="./images/vantrue-image-square.jpg"
-                alt="icon"
-              />
-              <div class="text">
-                <span>Bespoke / Custom Theme Development</span>
-              </div>
-            </div>
-            <span class="hover-view-btn">Shopify</span>
-          </div>
-        </div>
-      </div>
-      <div class="project-intro-banner-item project-intro-banner-item-right">
-        <h2>BEYOND BASIC THEMES</h2>
-        <p>
-          I’m typically brought in when default Shopify themes start limiting
-          growth. My work replaces rigid theme assumptions with modular,
-          performance-led systems that support scale, experimentation, and
-          long-term maintainability.
-        </p>
-        <!-- <a
-          href="#work"
-          style="
-            text-decoration: none;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #000;
-            color: #fff;
-            padding: 12px 24px;
-            border-radius: 40px;
-            font-weight: 600;
-          "
-        >
-          <span style="font-size: 1.2em">➜</span> LEARN MORE
-        </a> -->
-      </div>
-      <!-- <div style="flex: 1 1 300px; max-width: 400px">
-        <div class="quick-view-hover-trigger">
-          <article
-            class="quick-view-gallery-card"
-            style="
-              height: 400px;
-              background-image: url('./images/quickview-banner-placeholder.jpg');
-            "
-          >
-            <div class="quick-view-gallery-card-overlay">
-              <h4>Full Theme Rebuilds</h4>
-              <h2>Theme Replacements</h2>
-              <p>
-                Storefronts engineered from the ground up, custom sections,
-                layouts, and logic tailored to client needs.
-              </p>
-            </div>
-            <div class="quick-view-gallery-card-footer">
-              <div class="quick-view-meta">
-                <img
-                  class="thumbnail-icon"
-                  src="./images/quickview-banner-placeholder.jpg"
-                  alt="icon"
-                />
-                <div class="text">
-                  <span>Bespoke / Custom Theme Development</span>
-                </div>
-              </div>
-              <span class="quick-view-view-btn">Shopify</span>
-            </div>
-          </article>
-          <div class="quick-view-popup popup-gallery-popup">
-            <button class="popup-gallery-close-btn" aria-label="Close popup">
-              ×
-            </button>
-            <div class="quick-view-popup-content">
-              <h2>Theme Replacements</h2>
-              <p>
-                Developed fully custom Shopify themes with bespoke sections that
-                replace almost all native theme content. Includes complex layout
-                features, metafield logic, and dynamic schema support.
-              </p>
-              <a href="#work" class="popup-gallery-link-btn">View Work</a>
-            </div>
-          </div>
-        </div>
-      </div> -->
-    </section>
-
-    <!-- QUICK VIEW GALLERY SECTION -->
-    <section class="quick-view-gallery">
+    <!-- QUICK VIEW GALLERY SECTION REMOVED -->
+    <!-- <section class="quick-view-gallery" data-aos="fade-up">
       <div class="quick-view-hover-trigger" id="tuplus">
         <article
           class="quick-view-gallery-card"
@@ -338,63 +252,39 @@ type: website
           </div>
         </div>
       </div>
-      <div class="quick-view-hover-trigger">
-        <article
-          class="quick-view-gallery-card"
-          style="
-            background-image: url(&quot;./images/fudge-kitchen-image-square.jpg&quot;);
-          "
-        >
-          <div class="quick-view-gallery-card-overlay">
-            <h4>Shopify Theme Development</h4>
-            <h2>Fudge Kitchen Store</h2>
-            <p>
-              Custom Shopify modifications and bug fixes for a premium dessert
-              brand with app-integrated content.
-            </p>
-          </div>
-          <div class="quick-view-gallery-card-footer">
-            <div class="quick-view-meta">
-              <img
-                class="thumbnail-icon"
-                src="./images/fudge-kitchen-image-square.jpg"
-                alt="icon"
-              />
-              <div class="text">
-                <span>Code Modifications</span>
-              </div>
+      <div class="quick-view-hover-trigger themes performance">
+        <a href="./projects/fudge-kitchen.html" class="project-link">
+          <article
+            class="quick-view-gallery-card"
+            style="
+              background-image: url(&quot;./images/fudge-kitchen-image-square.jpg&quot;);
+            "
+          >
+            <div class="quick-view-gallery-card-overlay">
+              <h4>Shopify Theme Development</h4>
+              <h2>Fudge Kitchen Store</h2>
+              <p>
+                Custom Shopify modifications and bug fixes for a premium dessert
+                brand with app-integrated content.
+              </p>
             </div>
-            <span class="quick-view-view-btn">Shopify</span>
-          </div>
-        </article>
-        <div class="quick-view-popup popup-gallery-popup">
-          <button class="popup-gallery-close-btn" aria-label="Close popup">
-            ×
-          </button>
-          <div class="quick-view-popup-content">
-            <h2>Fudge Kitchen Store</h2>
-            <p>
-              Led theme-level enhancements for a premium Shopify brand,
-              replacing default theme constraints with custom Liquid sections to
-              improve layout flexibility, editorial control, and cross-device
-              performance.
-            </p>
-            <p>
-              Reduced layout duplication, improved content editing speed,
-              removed dependency on developers for routine updates, and
-              stabilised performance across breakpoints.
-            </p>
-            <a
-              href="https://www.fudgekitchen.co.uk/"
-              target="_blank"
-              rel="noopener noreferrer"
-              class="popup-gallery-link-btn"
-              >Visit Site</a
-            >
-          </div>
-        </div>
+            <div class="quick-view-gallery-card-footer">
+              <div class="quick-view-meta">
+                <img
+                  class="thumbnail-icon"
+                  src="./images/fudge-kitchen-image-square.jpg"
+                  alt="icon"
+                />
+                <div class="text">
+                  <span>Code Modifications</span>
+                </div>
+              </div>
+              <span class="quick-view-view-btn">Shopify</span>
+            </div>
+          </article>
+        </a>
       </div>
-      <div class="quick-view-hover-trigger" id="esl">
+      <div class="quick-view-hover-trigger themes performance" id="esl">
         <article
           class="quick-view-gallery-card"
           style="
@@ -876,215 +766,7 @@ type: website
 
     <!-- POPUP MODALS REMOVED: replaced by hover popups inside cards -->
 
-    <!-- --------HOVER GALLERY SECTION-------- -->
-    <section class="hover-gallery">
-      <article
-        class="hover-gallery-card"
-        style="
-          background-image: url(&quot;./images/nutrigums-image-square.jpg&quot;);
-        "
-      >
-        <div class="hover-gallery-card-overlay">
-          <h4>Shopify Theme Development</h4>
-          <h2>Nutrigums</h2>
-          <p>
-            Flexible theme components and app integrations for a smooth user
-            journey.
-          </p>
-        </div>
-        <div class="hover-gallery-card-hover">
-          <div>
-            <p>
-              Developed flexible, responsive Shopify theme components for
-              Nutrigums, integrating third-party apps and enhancing user
-              interaction.
-            </p>
-            <a
-              href="https://www.nutrigums.co.uk/"
-              target="_blank"
-              class="hover-view-btn"
-              >Visit Site</a
-            >
-          </div>
-        </div>
-        <div class="hover-gallery-card-footer">
-          <div class="hover-meta">
-            <img
-              class="thumbnail-icon"
-              src="./images/nutrigums-image-square.jpg"
-              alt="icon"
-            />
-            <div class="text">
-              <span>App Integrations</span>
-            </div>
-          </div>
-          <span class="hover-view-btn">Shopify</span>
-        </div>
-      </article>
-      <article
-        class="hover-gallery-card"
-        style="
-          background-image: url(&quot;./images/paper-bag-co-image-square.jpg&quot;);
-        "
-      >
-        <div class="hover-gallery-card-overlay">
-          <h4>Shopify Theme Development</h4>
-          <h2>Paper Bag Co</h2>
-          <p>
-            Refined layouts and responsive features for a dynamic storefront.
-          </p>
-        </div>
-        <div class="hover-gallery-card-hover">
-          <div>
-            <p>
-              Built and refined Shopify storefront layouts for Paper Bag Co,
-              with dynamic content features and SCSS-powered responsiveness.
-            </p>
-            <a
-              href="https://www.paperbagco.co.uk/"
-              target="_blank"
-              class="hover-view-btn"
-              >Visit Site</a
-            >
-          </div>
-        </div>
-        <div class="hover-gallery-card-footer">
-          <div class="hover-meta">
-            <img
-              class="thumbnail-icon"
-              src="./images/paper-bag-co-image-square.jpg"
-              alt="icon"
-            />
-            <div class="text">
-              <span>Storefront Layouts</span>
-            </div>
-          </div>
-          <span class="hover-view-btn">Shopify</span>
-        </div>
-      </article>
-      <article
-        class="hover-gallery-card"
-        style="
-          background-image: url(&quot;./images/floor-story-image-square.jpg&quot;);
-        "
-      >
-        <div class="hover-gallery-card-overlay">
-          <h4>Shopify Theme Development</h4>
-          <h2>Floor Story</h2>
-          <p>
-            Custom layouts and modular blocks tailored for stylish floor
-            products.
-          </p>
-        </div>
-        <div class="hover-gallery-card-hover">
-          <div>
-            <p>
-              Built custom Shopify layouts for Floor Story, with SCSS-powered
-              responsiveness and modular content blocks.
-            </p>
-            <a
-              href="https://floorstory.co.uk/"
-              target="_blank"
-              class="hover-view-btn"
-              >Visit Site</a
-            >
-          </div>
-        </div>
-        <div class="hover-gallery-card-footer">
-          <div class="hover-meta">
-            <img
-              class="thumbnail-icon"
-              src="./images/floor-story-image-square.jpg"
-              alt="icon"
-            />
-            <div class="text">
-              <span>Custom Layouts</span>
-            </div>
-          </div>
-          <span class="hover-view-btn">Shopify</span>
-        </div>
-      </article>
-      <article
-        class="hover-gallery-card"
-        style="
-          background-image: url(&quot;./images/sims-wear-image-square.jpg&quot;);
-        "
-      >
-        <div class="hover-gallery-card-overlay">
-          <h4>Shopify Theme Development</h4>
-          <h2>Simswear</h2>
-          <p>
-            Theme support and bug fixing for a seamless customer experience.
-          </p>
-        </div>
-        <div class="hover-gallery-card-hover">
-          <div>
-            <p>
-              Provided bug fixing and theme support for Simswear, ensuring
-              optimal functionality and a smooth shopping experience.
-            </p>
-            <a
-              href="https://simswear.com/"
-              target="_blank"
-              class="hover-view-btn"
-              >Visit Site</a
-            >
-          </div>
-        </div>
-        <div class="hover-gallery-card-footer">
-          <div class="hover-meta">
-            <img
-              class="thumbnail-icon"
-              src="./images/sims-wear-image-square.jpg"
-              alt="icon"
-            />
-            <div class="text">
-              <span>Bug Fixing</span>
-            </div>
-          </div>
-          <span class="hover-view-btn">Shopify</span>
-        </div>
-      </article>
-      <article
-        class="hover-gallery-card"
-        style="
-          background-image: url(&quot;./images/fablight-image-square.jpg&quot;);
-        "
-      >
-        <div class="hover-gallery-card-overlay">
-          <h4>Shopify Theme Development</h4>
-          <h2>FabLight</h2>
-          <p>Enhanced theme flexibility and functionality across viewports.</p>
-        </div>
-        <div class="hover-gallery-card-hover">
-          <div>
-            <p>
-              Delivered custom theme development for FabLight, enhancing layout
-              flexibility and storefront functionality across devices.
-            </p>
-            <a
-              href="https://fablight.co.uk/"
-              target="_blank"
-              class="hover-view-btn"
-              >Visit Site</a
-            >
-          </div>
-        </div>
-        <div class="hover-gallery-card-footer">
-          <div class="hover-meta">
-            <img
-              class="thumbnail-icon"
-              src="./images/fablight-image-square.jpg"
-              alt="icon"
-            />
-            <div class="text">
-              <span>Custom Development</span>
-            </div>
-          </div>
-          <span class="hover-view-btn">Shopify</span>
-        </div>
-      </article>
-    </section>
+    <!-- Hover gallery GRID removed: replaced by circle-nav + project carousels -->
     <!-- Script removed: quick view popup JavaScript is no longer needed -->
 
     <script>
@@ -1131,5 +813,51 @@ type: website
           });
         });
     </script>
-  </body>
-</html>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+
+    <script>
+      AOS.init({
+        duration: 800,
+        once: true,
+      });
+    </script>
+
+    <!-- Carousel JS -->
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const carousels = document.querySelectorAll('.carousel');
+
+        carousels.forEach(carousel => {
+          const slides = carousel.querySelectorAll('.slide');
+          const prevBtn = carousel.querySelector('.prev');
+          const nextBtn = carousel.querySelector('.next');
+          let currentIndex = 0;
+
+          function showSlide(index) {
+            slides.forEach((slide, i) => {
+              slide.classList.toggle('active', i === index);
+            });
+          }
+
+          prevBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+            showSlide(currentIndex);
+          });
+
+          nextBtn.addEventListener('click', () => {
+            currentIndex = (currentIndex + 1) % slides.length;
+            showSlide(currentIndex);
+          });
+
+          showSlide(currentIndex);
+        });
+      });
+    </script>

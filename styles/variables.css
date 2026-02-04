@@ -19,6 +19,9 @@
   --text-black: var(--color-black);
   --text-white: var(--color-white);
   --text-gray: #333333;
+
+  /* Accent */
+  --accent-black: var(--color-black);
   
   /* Spacing */
   --spacing-xs: 5px;

@@ -6,6 +6,17 @@
 
 document.addEventListener("DOMContentLoaded", function () {
   /**
+   * On localhost: unregister any service worker to avoid stale cache during development
+   */
+  if (window.location.hostname === "localhost" || window.location.hostname === "127.0.0.1") {
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistrations().then((registrations) => {
+        registrations.forEach((r) => r.unregister());
+      });
+    }
+  }
+
+  /**
    * Register Service Worker for PWA Support
    * Enables offline functionality and caching
    */
@@ -29,18 +40,22 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // Register service worker
-  registerServiceWorker();
+  // Temporarily disable service worker registration to avoid cached content
+  // during local development and preview. Re-enable when done testing.
+  // registerServiceWorker();
   /**
    * Initialize Splide Carousel for Clients Section (Main Project Gallery)
    * Shows loading state while carousel initializes
    * Scoped to .clients section to avoid conflicts
    */
-  const clientsCarouselElement = document.querySelector(".clients #carousel, .clients .clients-carousel");
+  const clientsCarouselElement = document.querySelector(
+    ".clients #carousel, .clients .clients-carousel",
+  );
   if (clientsCarouselElement) {
     try {
       // Show loading state
       clientsCarouselElement.classList.add("loading");
-      
+
       const clientsCarousel = new Splide(clientsCarouselElement, {
         perPage: 4,
         rewind: true,
@@ -87,7 +102,7 @@ document.addEventListener("DOMContentLoaded", function () {
     try {
       // Show loading state
       featuredClientsElement.classList.add("loading");
-      
+
       const featuredClients = new Splide(featuredClientsElement, {
         perPage: 2,
         rewind: true,
@@ -149,9 +164,11 @@ document.addEventListener("DOMContentLoaded", function () {
    * Shows loading spinner on internal navigation links when clicked
    */
   try {
-    const navigationLinks = document.querySelectorAll("a.btn, .desktop-menu a, .mobile-menu a");
+    const navigationLinks = document.querySelectorAll(
+      "a.btn, .desktop-menu a, .mobile-menu a",
+    );
     navigationLinks.forEach((link) => {
-      link.addEventListener("click", function(e) {
+      link.addEventListener("click", function (e) {
         // Only add loading for internal links
         if (this.hostname === window.location.hostname || !this.hostname) {
           if (!this.classList.contains("loading")) {
@@ -261,7 +278,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Close menu when clicking a link inside it
-    const mobileMenuLinks = mobileMenuWrapper.querySelectorAll(".mobile-menu a");
+    const mobileMenuLinks =
+      mobileMenuWrapper.querySelectorAll(".mobile-menu a");
     mobileMenuLinks.forEach((link) => {
       link.addEventListener("click", closeMenu);
     });
@@ -282,19 +300,19 @@ document.addEventListener("DOMContentLoaded", function () {
   if (workMenuItem) {
     try {
       const megaMenu = document.querySelector(".mega-menu");
-      
+
       workMenuItem.addEventListener("mouseenter", () => {
         workMenuItem.setAttribute("aria-expanded", "true");
       });
-      
+
       workMenuItem.addEventListener("mouseleave", () => {
         workMenuItem.setAttribute("aria-expanded", "false");
       });
-      
+
       workMenuItem.addEventListener("focus", () => {
         workMenuItem.setAttribute("aria-expanded", "true");
       });
-      
+
       workMenuItem.addEventListener("blur", (e) => {
         // Only collapse if focus moved outside the mega menu
         if (!megaMenu.contains(e.relatedTarget)) {
@@ -373,7 +391,11 @@ document.addEventListener("DOMContentLoaded", function () {
         emailInput.classList.add("touched");
         const email = emailInput.value.trim();
         if (email && !validateEmail(email)) {
-          showError(emailInput, emailError, "Please enter a valid email address");
+          showError(
+            emailInput,
+            emailError,
+            "Please enter a valid email address",
+          );
         } else {
           clearError(emailInput, emailError);
         }
@@ -383,7 +405,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (emailInput.classList.contains("touched")) {
           const email = emailInput.value.trim();
           if (email && !validateEmail(email)) {
-            showError(emailInput, emailError, "Please enter a valid email address");
+            showError(
+              emailInput,
+              emailError,
+              "Please enter a valid email address",
+            );
           } else {
             clearError(emailInput, emailError);
           }
@@ -395,7 +421,11 @@ document.addEventListener("DOMContentLoaded", function () {
         messageInput.classList.add("touched");
         const message = messageInput.value.trim();
         if (message && !validateMessage(message)) {
-          showError(messageInput, messageError, "Message must be at least 10 characters long");
+          showError(
+            messageInput,
+            messageError,
+            "Message must be at least 10 characters long",
+          );
         } else {
           clearError(messageInput, messageError);
         }
@@ -405,7 +435,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (messageInput.classList.contains("touched")) {
           const message = messageInput.value.trim();
           if (message && !validateMessage(message)) {
-            showError(messageInput, messageError, "Message must be at least 10 characters long");
+            showError(
+              messageInput,
+              messageError,
+              "Message must be at least 10 characters long",
+            );
           } else {
             clearError(messageInput, messageError);
           }
@@ -431,7 +465,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!email || !validateEmail(email)) {
           emailInput.classList.add("touched");
-          showError(emailInput, emailError, "Please enter a valid email address");
+          showError(
+            emailInput,
+            emailError,
+            "Please enter a valid email address",
+          );
           isValid = false;
         } else {
           clearError(emailInput, emailError);
@@ -439,7 +477,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         if (!message || !validateMessage(message)) {
           messageInput.classList.add("touched");
-          showError(messageInput, messageError, "Message must be at least 10 characters long");
+          showError(
+            messageInput,
+            messageError,
+            "Message must be at least 10 characters long",
+          );
           isValid = false;
         } else {
           clearError(messageInput, messageError);
@@ -471,7 +513,8 @@ document.addEventListener("DOMContentLoaded", function () {
           if (response.ok) {
             // Success - reset form and show success message
             formMessages.className = "success";
-            formMessages.textContent = "Thank you! Your message has been sent successfully. I'll get back to you soon.";
+            formMessages.textContent =
+              "Thank you! Your message has been sent successfully. I'll get back to you soon.";
             contactForm.reset();
             clearError(emailInput, emailError);
             clearError(messageInput, messageError);
@@ -481,19 +524,23 @@ document.addEventListener("DOMContentLoaded", function () {
           } else {
             // Handle API error response
             const data = await response.json().catch(() => ({}));
-            throw new Error(data.error || "Something went wrong. Please try again.");
+            throw new Error(
+              data.error || "Something went wrong. Please try again.",
+            );
           }
         } catch (error) {
           // Handle network errors or API failures
           formMessages.className = "error";
-          formMessages.textContent = error.message || "There was an error sending your message. Please try again or contact me directly via email.";
+          formMessages.textContent =
+            error.message ||
+            "There was an error sending your message. Please try again or contact me directly via email.";
         } finally {
           // Always reset loading state
           submitBtn.disabled = false;
           buttonText.style.display = "inline-block";
           buttonLoader.style.display = "none";
           submitBtn.setAttribute("aria-busy", "false");
-          
+
           // Focus on message area for accessibility
           if (formMessages.textContent) {
             formMessages.focus();

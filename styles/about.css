@@ -80,3 +80,40 @@
     padding: 20px;
   }
 }
+
+/* CTA Section */
+.cta-section .button-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.cta-section .btn {
+  padding: 12px 24px;
+  border-radius: var(--radius-full);
+  text-decoration: none;
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.cta-section .btn-primary {
+  background: var(--bg-black);
+  color: var(--text-white);
+}
+
+.cta-section .btn-primary:hover {
+  background: var(--color-gray-dark);
+}
+
+.cta-section .btn-secondary {
+  background: transparent;
+  color: var(--text-black);
+  border: 2px solid var(--accent-black);
+}
+
+.cta-section .btn-secondary:hover {
+  background: var(--bg-black);
+  color: var(--text-white);
+}
