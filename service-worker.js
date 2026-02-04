@@ -18,7 +18,7 @@ const PRECACHE_ASSETS = [
   "{{ site.baseurl }}/work.html",
   "{{ site.baseurl }}/services.html",
   "{{ site.baseurl }}/contact.html",
-  "{{ site.baseurl }}/rates.html",
+  "{{ site.baseurl }}/working-with-me.html",
   "{{ site.baseurl }}/styles/style.css",
   "{{ site.baseurl }}/styles/index.css",
   "{{ site.baseurl }}/styles/header.css",

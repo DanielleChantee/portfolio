@@ -694,7 +694,7 @@ img[loading="lazy"] {
 
 .service-paragraph {
   color: var(--text-white);
-  text-align: left;
+  text-align: center;
   line-height: 1.6;
   max-width: 100%;
   margin: 0;
